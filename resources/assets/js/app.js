@@ -13,4 +13,14 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./components/Example');
+//require('./components/Example');
+
+import React from 'react';
+import { render } from 'react-dom';
+
+import Master from './components/someComponent/Master';
+
+render(
+  <Master />,
+  document.getElementById('root')
+);

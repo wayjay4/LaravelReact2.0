@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// using this route to redirect all requests to the welcome view
+// for reactjs to direct web traffic (at least three levels deep)
+Route::any('/{text1?}/{text2?}/{text3?}', function () {
+    return view('welcome');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
