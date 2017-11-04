@@ -1,9 +1,10 @@
 // Layout.js
 import React, {Component} from 'react';
-import Clock from './Clock';
 import { Form, FormControl, Button } from  'react-bootstrap';
 
-export default class Master extends Component {
+import Timer from './Timer';
+
+export default class Clock extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,7 +24,7 @@ export default class Master extends Component {
             <div className="container, App">
                 <div className="App-title">Countdown to {this.state.deadline}</div>
 
-                <Clock
+                <Timer
                     deadline={this.state.deadline}
                 />
 

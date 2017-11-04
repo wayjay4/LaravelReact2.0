@@ -17,7 +17,7 @@ require('./bootstrap');
 
 import React from 'react';
 import { render } from 'react-dom';
-import Master from './components/someComponent/Master';
+import Master from './Master';
 
 render(
   <Master />,
