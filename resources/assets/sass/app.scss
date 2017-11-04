@@ -1,9 +1,23 @@
 
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+.App {
+  text-align: center;
+  font-size: 35px;
+  margin-top: 20%;
+}
 
-// Variables
-@import "variables";
+.App-title {
+  font-size: 50px;
+}
 
-// Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+.Clock-days,
+.Clock-hours,
+.Clock-minutes,
+.Clock-seconds {
+  display: inline;
+  margin: 10px;
+}
+
+.Deadline-input {
+  font-size: 25px;
+  margin: 5px;
+}
