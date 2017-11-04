@@ -72706,17 +72706,17 @@ var Stopwatch = function (_Component) {
         var _this = _possibleConstructorReturn(this, (Stopwatch.__proto__ || Object.getPrototypeOf(Stopwatch)).call(this, props));
 
         _this.state = {
-            deadline: 'December 25, 2017',
-            newDeadline: ''
+            startTime: 60 * 1000 * 60,
+            newStartTime: ''
         };
         return _this;
     }
 
     _createClass(Stopwatch, [{
-        key: 'changeDeadline',
-        value: function changeDeadline() {
+        key: 'changeStartTime',
+        value: function changeStartTime() {
             this.setState({
-                deadline: this.state.newDeadline
+                startTime: this.state.newStartTime
             });
         }
     }, {
@@ -72730,44 +72730,29 @@ var Stopwatch = function (_Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
                     { className: 'App-title' },
-                    'Countdown to ',
-                    this.state.deadline
+                    'Countdown from ',
+                    this.state.startTime,
+                    ' milli seconds'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Timer__["a" /* default */], {
-                    deadline: this.state.deadline
+                    startTime: this.state.startTime
                 }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["b" /* Form */],
                     { inline: true },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["c" /* FormControl */], {
                         className: 'Deadline-input',
-                        placeholder: 'new date',
+                        placeholder: 'new start time in seconds',
                         onChange: function onChange(event) {
-                            return _this2.setState({ newDeadline: event.target.value });
+                            return _this2.setState({ newStartTime: event.target.value });
                         }
                     }),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["a" /* Button */],
                         { onClick: function onClick() {
-                                return _this2.changeDeadline();
+                                return _this2.changeStartTime();
                             } },
                         'Submit'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["a" /* Button */],
-                        null,
-                        'Stop'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["a" /* Button */],
-                        null,
-                        'Start'
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["a" /* Button */],
-                        null,
-                        'Reset'
                     )
                 )
             );
@@ -72786,6 +72771,7 @@ var Stopwatch = function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__ = __webpack_require__(166);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -72793,6 +72779,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -72805,6 +72792,8 @@ var Timer = function (_Component) {
         var _this = _possibleConstructorReturn(this, (Timer.__proto__ || Object.getPrototypeOf(Timer)).call(this, props));
 
         _this.state = {
+            newTime: 0,
+            stopTimer: 0,
             days: 0,
             hours: 0,
             minutes: 0,
@@ -72816,7 +72805,7 @@ var Timer = function (_Component) {
     _createClass(Timer, [{
         key: 'componentWillMount',
         value: function componentWillMount() {
-            this.getTimeUntil(this.props.deadline);
+            this.getCountDownTime(this.props.startTime);
         }
     }, {
         key: 'componentDidMount',
@@ -72825,7 +72814,7 @@ var Timer = function (_Component) {
 
             var milliseconds = 1000;
             setInterval(function () {
-                return _this2.getTimeUntil(_this2.props.deadline);
+                return _this2.getCountDownTime(_this2.state.newTime);
             }, milliseconds);
         }
     }, {
@@ -72834,24 +72823,47 @@ var Timer = function (_Component) {
             return num < 10 ? '0' + num : num;
         }
     }, {
-        key: 'getTimeUntil',
-        value: function getTimeUntil(deadline) {
-            var time = Date.parse(deadline) - Date.parse(new Date());
-            var seconds = Math.floor(time / 1000 % 60);
-            var minutes = Math.floor(time / 1000 / 60 % 60);
-            var hours = Math.floor(time / (1000 * 60 * 60) % 24);
-            var days = Math.floor(time / (1000 * 60 * 60 * 24));
+        key: 'getCountDownTime',
+        value: function getCountDownTime(time) {
+            if (this.state.stopTimer == 0) {
+                var seconds = Math.floor(time / 1000 % 60);
+                var minutes = Math.floor(time / 1000 / 60 % 60);
+                var hours = Math.floor(time / (1000 * 60 * 60) % 24);
+                var days = Math.floor(time / (1000 * 60 * 60 * 24));
 
+                var newTime = time - 1000;
+
+                this.setState({
+                    newTime: newTime,
+                    days: days,
+                    hours: hours,
+                    minutes: minutes,
+                    seconds: seconds
+                });
+            }
+        }
+    }, {
+        key: 'changeStopTimer',
+        value: function changeStopTimer() {
             this.setState({
-                days: days,
-                hours: hours,
-                minutes: minutes,
-                seconds: seconds
+                stopTimer: 1
             });
         }
     }, {
+        key: 'changeStartTimer',
+        value: function changeStartTimer() {
+            this.setState({
+                stopTimer: 0
+            });
+        }
+    }, {
+        key: 'changeResetTimer',
+        value: function changeResetTimer() {}
+    }, {
         key: 'render',
         value: function render() {
+            var _this3 = this;
+
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
@@ -72878,6 +72890,32 @@ var Timer = function (_Component) {
                     { className: 'Clock-seconds' },
                     this.leading0(this.state.seconds),
                     ' seconds'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["a" /* Button */],
+                        { onClick: function onClick() {
+                                return _this3.changeStopTimer();
+                            } },
+                        'Stop'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["a" /* Button */],
+                        { onClick: function onClick() {
+                                return _this3.changeStartTimer();
+                            } },
+                        'Start'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["a" /* Button */],
+                        { onClick: function onClick() {
+                                return _this3.changeResetTimer();
+                            } },
+                        'Reset'
+                    )
                 )
             );
         }

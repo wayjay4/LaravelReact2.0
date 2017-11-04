@@ -8,38 +8,34 @@ export default class Stopwatch extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            deadline: 'December 25, 2017',
-            newDeadline: ''
+            startTime: (60*1000)*60,
+            newStartTime: ''
         }
     }
 
-    changeDeadline() {
+    changeStartTime() {
         this.setState({
-            deadline: this.state.newDeadline
+            startTime: this.state.newStartTime
         });
     }
 
     render() {
         return (
             <div className="container, App">
-                <div className="App-title">Countdown to {this.state.deadline}</div>
+                <div className="App-title">Countdown from {this.state.startTime} milli seconds</div>
 
                 <Timer
-                    deadline={this.state.deadline}
+                    startTime={this.state.startTime}
                 />
 
                 <Form inline={true}>
                     <FormControl
                         className="Deadline-input"
-                        placeholder='new date'
-                        onChange={event => this.setState({newDeadline: event.target.value})}
+                        placeholder='new start time in seconds'
+                        onChange={event => this.setState({newStartTime: event.target.value})}
                     />
 
-                    <Button onClick={() => this.changeDeadline()}>Submit</Button>
-                    <br />
-                    <Button>Stop</Button>
-                    <Button>Start</Button>
-                    <Button>Reset</Button>
+                    <Button onClick={() => this.changeStartTime()}>Submit</Button>
                 </Form>
             </div>
         );
