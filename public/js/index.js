@@ -73012,12 +73012,39 @@ var MusicMaster = function (_Component) {
     _createClass(MusicMaster, [{
         key: 'search',
         value: function search() {
-            console.log('this.state', this.state);
+            var _this2 = this;
+
+            // create fetch url
+            var BASE_URL = 'https://api.spotify.com/v1/search?';
+            var FETCH_URL = BASE_URL + 'q=' + this.state.query + '&type=artist&limit=1';
+
+            console.log('FETCH_URL', FETCH_URL);
+
+            // setting up header with access token Spotify API access using 'GET' method
+            var accessToken = 'BQBtc9GMgg-DIusbKX3fo7NAMOmQNZvpmAE2DQDotw1fkvkO43JDCV6n70jhnivGtFTSoD6Pf3cetsxz1tqnwPdHLVSyFCXIIg9nihy--TVuSuCBo8NKj1iDdk5Hr5kVWQEXKi0oDprMJOcTL-S_ypjfmQsUrPc756zxcpUGRrV1CmR5caE';
+            var options = {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + accessToken
+                },
+                mode: 'cors',
+                cache: 'default'
+            };
+
+            // send the request and get the response
+            fetch(FETCH_URL, options).then(function (response) {
+                return response.json();
+            }).then(function (json) {
+                var artist = json.artists.items[0];
+                _this2.setState({ artist: artist });
+
+                console.log('this.state', _this2.state);
+            });
         }
     }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
+            var _this3 = this;
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
@@ -73041,18 +73068,18 @@ var MusicMaster = function (_Component) {
                                 placeholder: "Search for an Artist",
                                 value: this.state.query,
                                 onChange: function onChange(event) {
-                                    _this2.setState({ query: event.target.value });
+                                    _this3.setState({ query: event.target.value });
                                 },
                                 onKeyPress: function onKeyPress(event) {
                                     if (event.key === 'Enter') {
-                                        _this2.search();
+                                        _this3.search();
                                     }
                                 }
                             }),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["f" /* InputGroup */].Addon,
                                 { onClick: function onClick() {
-                                        return _this2.search();
+                                        return _this3.search();
                                     } },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["e" /* Glyphicon */], { glyph: "search" })
                             )
