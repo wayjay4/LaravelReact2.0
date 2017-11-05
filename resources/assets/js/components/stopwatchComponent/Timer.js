@@ -10,7 +10,8 @@ export default class Timer extends Component {
             days: 0,
             hours: 0,
             minutes: 0,
-            seconds: 0
+            seconds: 0,
+            interval: ''
         }
     }
 
@@ -19,8 +20,12 @@ export default class Timer extends Component {
         this.setCountDownTime();
     }
     componentDidMount() {
+        this.createInterval();
+    }
+
+    createInterval(){
         const milliseconds = 1000;
-        setInterval(() => this.getCountDownTime(this.state.newTime), milliseconds);
+        this.state.interval = setInterval(() => this.getCountDownTime(this.state.newTime), milliseconds);
     }
 
     leading0(num) {
@@ -49,20 +54,26 @@ export default class Timer extends Component {
     getCountDownTime(time) {
         // if the timer is running, then calculate and set a new time
         if(this.state.stopTimer == 0) {
-            const seconds = Math.floor((time/1000) % 60);
-            const minutes = Math.floor((time/1000/60) % 60);
-            const hours = Math.floor(time/(1000*60*60) % 24);
-            const days = Math.floor(time/(1000*60*60*24));
+            if(time >= 0) {
+                const seconds = Math.floor((time / 1000) % 60);
+                const minutes = Math.floor((time / 1000 / 60) % 60);
+                const hours = Math.floor(time / (1000 * 60 * 60) % 24);
+                const days = Math.floor(time / (1000 * 60 * 60 * 24));
 
-            const newTime = time-1000;
+                const newTime = time - 1000;
 
-            this.setState({
-                newTime,
-                days,
-                hours,
-                minutes,
-                seconds
-            });
+                this.setState({
+                    newTime,
+                    days,
+                    hours,
+                    minutes,
+                    seconds
+                });
+            }
+            else{
+                alert('all done!');
+                clearInterval(this.state.interval);
+            }
         }
     }
 
@@ -86,9 +97,9 @@ export default class Timer extends Component {
         return (
             <div>
                 <div className="Clock-days">{this.leading0(this.state.days)} days</div>
-                <div className="Clock-hours">{this.leading0(this.state.hours)}:</div>
-                <div className="Clock-minutes">{this.leading0(this.state.minutes)}:</div>
-                <div className="Clock-seconds">{this.leading0(this.state.seconds)}</div>
+                <div className="Clock-hours">{this.leading0(this.state.hours)} hours</div>
+                <div className="Clock-minutes">{this.leading0(this.state.minutes)} mins</div>
+                <div className="Clock-seconds">{this.leading0(this.state.seconds)} secs</div>
 
                 <br />
 

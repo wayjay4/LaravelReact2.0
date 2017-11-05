@@ -4,7 +4,7 @@ import { Form, FormControl, Button } from  'react-bootstrap';
 
 import Timer from './Timer';
 
-export default class Clock extends Component {
+export default class Cdclock extends Component {
     constructor(props) {
         super(props);
         this.state = {
