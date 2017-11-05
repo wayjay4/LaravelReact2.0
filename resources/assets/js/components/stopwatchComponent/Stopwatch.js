@@ -8,7 +8,7 @@ export default class Stopwatch extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            startTime: (60*1000)*60,
+            startTime: 60*60,
             newStartTime: ''
         }
     }
@@ -22,7 +22,7 @@ export default class Stopwatch extends Component {
     render() {
         return (
             <div className="container, App">
-                <div className="App-title">Countdown from {this.state.startTime} milli seconds</div>
+                <div className="App-title">Countdown from {this.state.startTime} seconds</div>
 
                 <Timer
                     startTime={this.state.startTime}

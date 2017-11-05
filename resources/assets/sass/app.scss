@@ -12,7 +12,8 @@
 .Clock-days,
 .Clock-hours,
 .Clock-minutes,
-.Clock-seconds {
+.Clock-seconds,
+.Clock-milliseconds {
   display: inline;
   margin: 10px;
 }
@@ -20,4 +21,9 @@
 .Deadline-input {
   font-size: 25px;
   margin: 5px;
+}
+
+.Timer-btn {
+  display: inline;
+  margin: 15px;
 }
