@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
+import Profile from './Profile';
 
 export default class MusicMaster extends Component {
     constructor(props) {
@@ -16,11 +17,9 @@ export default class MusicMaster extends Component {
         const FETCH_URL = BASE_URL + 'q=' + this.state.query
             + '&type=artist&limit=1';
 
-        console.log('FETCH_URL', FETCH_URL);
-
         // setting up header with access token Spotify API access using 'GET' method
         let accessToken =
-            'BQBtc9GMgg-DIusbKX3fo7NAMOmQNZvpmAE2DQDotw1fkvkO43JDCV6n70jhnivGtFTSoD6Pf3cetsxz1tqnwPdHLVSyFCXIIg9nihy--TVuSuCBo8NKj1iDdk5Hr5kVWQEXKi0oDprMJOcTL-S_ypjfmQsUrPc756zxcpUGRrV1CmR5caE';
+            'BQCBHLTzd0TID0KH8k02kQVCKY7CJH-0MVuCZrDcVk51SEv4wysAta-qfcmxQXlm1fqb3RQZ6B3OnQeJqbNPBUqrqH9J1BESSY-peHYLBg6hICnANK8PWMk_6w0o9Uy1--PoONjWhhAbXvoUABv7DjAgOTDUhnA08ufZ-ZEYvM4t-OMQ_PM';
         let options = {
             method: 'GET',
             headers: {
@@ -68,10 +67,9 @@ export default class MusicMaster extends Component {
                     </FormGroup>
                 </div>
 
-                <div className={"Profile"}>
-                    <div>Artist Picture</div>
-                    <div>Artist Name</div>
-                </div>
+                <Profile
+                    artist={this.state.artist}
+                />
 
                 <div className={"Gallery"}>
                     Gallery
