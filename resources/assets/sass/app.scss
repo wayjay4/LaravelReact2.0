@@ -8,6 +8,7 @@
 * -->StopWatch
 */
 
+/*
 .App {
   text-align: center;
   font-size: 35px;
@@ -36,10 +37,24 @@
   display: inline;
   margin: 15px;
 }
-
+*/
 
 /*
 * — Projects 3 & 4 —
 * -->CountClock
 * -->StopWatch
 */
+
+body {
+  background: #000;
+  color: #fff;
+}
+
+.App {
+  text-align: center;
+  padding: 5%;
+}
+
+.App-title {
+  font-size: 26px;
+}
