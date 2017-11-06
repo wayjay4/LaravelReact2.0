@@ -46,7 +46,6 @@ export default class Gallery extends Component {
         return(
             <div>
                 {tracks.map((track, key) => {
-                    console.log('track', track);
                     const trackImg = track.album.images[0].url;
 
                     return (

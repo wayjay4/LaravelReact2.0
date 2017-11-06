@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
 import Profile from './Profile';
 import Gallery from './Gallery';
+import { getAccessToken } from  './myLib'
 
 export default class MusicMaster extends Component {
     constructor(props) {
@@ -21,8 +22,7 @@ export default class MusicMaster extends Component {
         const ALBUM_URL = 'https://api.spotify.com/v1/artists';
 
         // setting up header with access token Spotify API access using 'GET' method
-        let accessToken =
-            'BQDRbq1JaiQuE616BguHW9eiPKdys3DTwZ_UZCVn1rP7bdntUoxIJel2NlzBuh9JP0w1eYh6RZMYS-dsQ09Zze3oUCu0u_cBgT-VZZXJQU8gq_IQNNlXiR7hiMsBNNO8DI3otoCdE7MXFrElXHAAOAtrLdA22nvHP3vQYzR90fFO91RP3ik';
+        let accessToken = getAccessToken();
         let options = {
             method: 'GET',
             headers: {
@@ -43,12 +43,9 @@ export default class MusicMaster extends Component {
                 fetch(FETCH_URL, options)
                     .then(response => response.json())
                     .then(json => {
-                        console.log('artist\'s top tracks:', json);
                         const { tracks } = json;
                         this.setState({ tracks })
                     });
-
-                console.log('this.state', this.state);
             });
     }
 
