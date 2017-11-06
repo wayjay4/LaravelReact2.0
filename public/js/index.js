@@ -73235,11 +73235,30 @@ var Gallery = function (_Component) {
         key: 'render',
         value: function render() {
             console.log('this.props.gallery', this.props);
+            var tracks = this.props.tracks;
+
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
-                'Gallery'
+                tracks.map(function (track, key) {
+                    var trackImg = track.album.images[0].url;
+
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: "track", key: key },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', {
+                            className: "track-img",
+                            alt: "track",
+                            src: trackImg
+                        }),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'p',
+                            { className: "track-text" },
+                            track.name
+                        )
+                    );
+                })
             );
         }
     }]);
