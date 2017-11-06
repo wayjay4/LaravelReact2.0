@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
 import Profile from './Profile';
+import Gallery from './Gallery';
 
 export default class MusicMaster extends Component {
     constructor(props) {
         super(props);
         this.state = {
             query: '',
-            artist: null
+            artist: null,
+            tracks: []
         };
     }
 
     search() {
         // create fetch url
         const BASE_URL = 'https://api.spotify.com/v1/search?';
-        const FETCH_URL = BASE_URL + 'q=' + this.state.query
+        let FETCH_URL = BASE_URL + 'q=' + this.state.query
             + '&type=artist&limit=1';
+        const ALBUM_URL = 'https://api.spotify.com/v1/artists';
 
         // setting up header with access token Spotify API access using 'GET' method
         let accessToken =
-            'BQCBHLTzd0TID0KH8k02kQVCKY7CJH-0MVuCZrDcVk51SEv4wysAta-qfcmxQXlm1fqb3RQZ6B3OnQeJqbNPBUqrqH9J1BESSY-peHYLBg6hICnANK8PWMk_6w0o9Uy1--PoONjWhhAbXvoUABv7DjAgOTDUhnA08ufZ-ZEYvM4t-OMQ_PM';
+            'BQAaX9OVvZn9Risf_Vt2jBj0GLgnyYYNAof4Sx5fra5iDBb4kucVaj3BzGDtwcChKHQPh3npna5ak2QA3tqpApMsD9O7PSZGsh53YqRA9VkSqOUwYRKb3D88ZsapBGQJmYJ38uE6LweR0eOTR7tYT-zoVsxBBcFxhY1UYVKHafOZVst9AHg';
         let options = {
             method: 'GET',
             headers: {
@@ -35,6 +38,15 @@ export default class MusicMaster extends Component {
             .then(json => {
                 const artist = json.artists.items[0];
                 this.setState({ artist });
+
+                FETCH_URL = `${ALBUM_URL}/${artist.id}/top-tracks?country=US`;
+                fetch(FETCH_URL, options)
+                    .then(response => response.json())
+                    .then(json => {
+                        console.log('artist\'s top tracks:', json);
+                        const { tracks } = json;
+                        this.setState({ tracks })
+                    });
 
                 console.log('this.state', this.state);
             });
@@ -67,13 +79,20 @@ export default class MusicMaster extends Component {
                     </FormGroup>
                 </div>
 
-                <Profile
-                    artist={this.state.artist}
-                />
+                {
+                    (this.state.artist !== null) ?
+                        <div>
+                            <Profile
+                                artist={this.state.artist}
+                            />
 
-                <div className={"Gallery"}>
-                    Gallery
-                </div>
+                            <Gallery
+                                tracks={this.state.tracks}
+                            />
+                        </div>
+                        :
+                        <div></div>
+                }
             </div>
         );
     }
