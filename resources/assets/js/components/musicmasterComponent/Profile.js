@@ -32,8 +32,9 @@ export default class Profile extends Component {
 
                     <div className={"profile-genres"}>
                         {artist.genres.map((genre, key) => {
-                            genre = (genre !== artist.genres[artist.genres.length-1]) ?
-                                `${genre}, ` : `& ${genre}`;
+                            genre = (genre !== artist.genres[artist.genres.length-1])
+                                ? `${genre}, `
+                                : `& ${genre}`;
                             return(
                                 <span key={key}>{genre}</span>
                             )

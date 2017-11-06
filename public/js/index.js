@@ -73013,7 +73013,7 @@ var MusicMaster = function (_Component) {
             var ALBUM_URL = 'https://api.spotify.com/v1/artists';
 
             // setting up header with access token Spotify API access using 'GET' method
-            var accessToken = 'BQAaX9OVvZn9Risf_Vt2jBj0GLgnyYYNAof4Sx5fra5iDBb4kucVaj3BzGDtwcChKHQPh3npna5ak2QA3tqpApMsD9O7PSZGsh53YqRA9VkSqOUwYRKb3D88ZsapBGQJmYJ38uE6LweR0eOTR7tYT-zoVsxBBcFxhY1UYVKHafOZVst9AHg';
+            var accessToken = 'BQDRbq1JaiQuE616BguHW9eiPKdys3DTwZ_UZCVn1rP7bdntUoxIJel2NlzBuh9JP0w1eYh6RZMYS-dsQ09Zze3oUCu0u_cBgT-VZZXJQU8gq_IQNNlXiR7hiMsBNNO8DI3otoCdE7MXFrElXHAAOAtrLdA22nvHP3vQYzR90fFO91RP3ik';
             var options = {
                 method: 'GET',
                 headers: {
@@ -73296,6 +73296,23 @@ var Gallery = function (_Component) {
                             alt: "track",
                             src: trackImg
                         }),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: "track-play" },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'div',
+                                { className: "track-play-inner" },
+                                _this2.state.playingUrl === track.preview_url ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'span',
+                                    null,
+                                    '| |'
+                                ) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'span',
+                                    null,
+                                    '\u25B6'
+                                )
+                            )
+                        ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'p',
                             { className: "track-text" },

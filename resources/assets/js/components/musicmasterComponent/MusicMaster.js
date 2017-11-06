@@ -22,7 +22,7 @@ export default class MusicMaster extends Component {
 
         // setting up header with access token Spotify API access using 'GET' method
         let accessToken =
-            'BQAaX9OVvZn9Risf_Vt2jBj0GLgnyYYNAof4Sx5fra5iDBb4kucVaj3BzGDtwcChKHQPh3npna5ak2QA3tqpApMsD9O7PSZGsh53YqRA9VkSqOUwYRKb3D88ZsapBGQJmYJ38uE6LweR0eOTR7tYT-zoVsxBBcFxhY1UYVKHafOZVst9AHg';
+            'BQDRbq1JaiQuE616BguHW9eiPKdys3DTwZ_UZCVn1rP7bdntUoxIJel2NlzBuh9JP0w1eYh6RZMYS-dsQ09Zze3oUCu0u_cBgT-VZZXJQU8gq_IQNNlXiR7hiMsBNNO8DI3otoCdE7MXFrElXHAAOAtrLdA22nvHP3vQYzR90fFO91RP3ik';
         let options = {
             method: 'GET',
             headers: {
