@@ -73124,7 +73124,11 @@ var Profile = function (_Component) {
                 name: '',
                 followers: {
                     total: ''
-                }
+                },
+                images: [{
+                    url: ''
+                }],
+                genres: []
             };
 
             if (this.props.artist !== null) {
@@ -73133,16 +73137,38 @@ var Profile = function (_Component) {
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
-                null,
+                { className: "profile" },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', {
+                    alt: "Profile",
+                    className: "profile-img",
+                    src: artist.images[0].url
+                }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
-                    null,
-                    artist.name
-                ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    null,
-                    artist.followers.total
+                    { className: "profile-info" },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: "profile-name" },
+                        artist.name
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: "profile-followers" },
+                        artist.followers.total,
+                        ' followers'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: "profile-genres" },
+                        artist.genres.map(function (genre, key) {
+                            genre = genre !== artist.genres[artist.genres.length - 1] ? genre + ', ' : '& ' + genre;
+                            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'span',
+                                { key: key },
+                                genre
+                            );
+                        })
+                    )
                 )
             );
         }
