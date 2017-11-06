@@ -73225,17 +73225,47 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Gallery = function (_Component) {
     _inherits(Gallery, _Component);
 
-    function Gallery() {
+    function Gallery(props) {
         _classCallCheck(this, Gallery);
 
-        return _possibleConstructorReturn(this, (Gallery.__proto__ || Object.getPrototypeOf(Gallery)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Gallery.__proto__ || Object.getPrototypeOf(Gallery)).call(this, props));
+
+        _this.state = {
+            playingUrl: '',
+            audio: null,
+            playing: false
+        };
+        return _this;
     }
 
     _createClass(Gallery, [{
         key: 'playAudio',
         value: function playAudio(previewUrl) {
             var audio = new Audio(previewUrl);
-            audio.play();
+
+            if (!this.state.playing) {
+                audio.play();
+                this.setState({
+                    playingUrl: previewUrl,
+                    audio: audio,
+                    playing: true
+                });
+            } else {
+                if (this.state.playingUrl === previewUrl) {
+                    this.state.audio.pause();
+                    this.setState({
+                        playing: false
+                    });
+                } else {
+                    this.state.audio.pause();
+                    audio.play();
+                    this.setState({
+                        playingUrl: previewUrl,
+                        audio: audio,
+                        playing: true
+                    });
+                }
+            }
         }
     }, {
         key: 'render',

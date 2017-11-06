@@ -1,9 +1,43 @@
 import React, { Component } from 'react';
 
 export default class Gallery extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            playingUrl: '',
+            audio: null,
+            playing: false
+        }
+    }
+
     playAudio(previewUrl) {
         let audio = new Audio(previewUrl);
-        audio.play();
+
+        if(!this.state.playing) {
+            audio.play();
+            this.setState({
+                playingUrl: previewUrl,
+                audio,
+                playing: true
+            });
+        }
+        else{
+            if(this.state.playingUrl === previewUrl) {
+                this.state.audio.pause();
+                this.setState({
+                    playing: false
+                });
+            }
+            else {
+                this.state.audio.pause();
+                audio.play();
+                this.setState({
+                    playingUrl: previewUrl,
+                    audio,
+                    playing: true
+                });
+            }
+        }
     }
 
     render() {
