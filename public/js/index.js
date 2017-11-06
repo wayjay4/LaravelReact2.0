@@ -73232,9 +73232,16 @@ var Gallery = function (_Component) {
     }
 
     _createClass(Gallery, [{
+        key: 'playAudio',
+        value: function playAudio(previewUrl) {
+            var audio = new Audio(previewUrl);
+            audio.play();
+        }
+    }, {
         key: 'render',
         value: function render() {
-            console.log('this.props.gallery', this.props);
+            var _this2 = this;
+
             var tracks = this.props.tracks;
 
 
@@ -73242,11 +73249,18 @@ var Gallery = function (_Component) {
                 'div',
                 null,
                 tracks.map(function (track, key) {
+                    console.log('track', track);
                     var trackImg = track.album.images[0].url;
 
                     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { className: "track", key: key },
+                        {
+                            className: "track",
+                            key: key,
+                            onClick: function onClick() {
+                                return _this2.playAudio(track.preview_url);
+                            }
+                        },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', {
                             className: "track-img",
                             alt: "track",
