@@ -35463,7 +35463,7 @@ var DELETE_REMINDER = 'DELETE_REMINDER';
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(346);
-module.exports = __webpack_require__(645);
+module.exports = __webpack_require__(646);
 
 
 /***/ }),
@@ -91868,7 +91868,10 @@ var deleteReminder = function deleteReminder(id) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(344);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sfcookies__ = __webpack_require__(645);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sfcookies___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_sfcookies__);
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 
 
 
@@ -91901,14 +91904,16 @@ var reminders = function reminders() {
     var action = arguments[1];
 
     var reminders = null;
+    state = Object(__WEBPACK_IMPORTED_MODULE_1_sfcookies__["read_cookie"])('reminders');
 
     switch (action.type) {
         case __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* ADD_REMINDER */]:
             reminders = [].concat(_toConsumableArray(state), [reminder(action)]);
-            console.log('reminders as state', reminders);
+            Object(__WEBPACK_IMPORTED_MODULE_1_sfcookies__["bake_cookie"])('reminders', reminders);
             return reminders;
         case __WEBPACK_IMPORTED_MODULE_0__constants__["b" /* DELETE_REMINDER */]:
             reminders = removeById(state, action.id);
+            Object(__WEBPACK_IMPORTED_MODULE_1_sfcookies__["bake_cookie"])('reminders', reminders);
             return reminders;
         default:
             return state;
@@ -91919,6 +91924,35 @@ var reminders = function reminders() {
 
 /***/ }),
 /* 645 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.bake_cookie = bake_cookie;
+exports.read_cookie = read_cookie;
+exports.delete_cookie = delete_cookie;
+function bake_cookie(name, value) {
+  var cookie = [name, '=', JSON.stringify(value), '; domain_.', window.location.host.toString(), '; path=/;'].join('');
+  document.cookie = cookie;
+}
+
+// reads a cookie according to the given name
+function read_cookie(name) {
+  var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
+  result = result != null ? JSON.parse(result[1]) : [];
+  return result;
+}
+
+function delete_cookie(name) {
+  document.cookie = [name, '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/; domain.', window.location.host.toString()].join('');
+}
+
+/***/ }),
+/* 646 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
