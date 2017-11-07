@@ -75504,7 +75504,8 @@ var ReminderPro = function (_Component) {
         var _this = _possibleConstructorReturn(this, (ReminderPro.__proto__ || Object.getPrototypeOf(ReminderPro)).call(this, props));
 
         _this.state = {
-            text: ''
+            text: '',
+            dueDate: ''
         };
         return _this;
     }
@@ -75512,7 +75513,7 @@ var ReminderPro = function (_Component) {
     _createClass(ReminderPro, [{
         key: 'addReminder',
         value: function addReminder() {
-            this.props.addReminder(this.state.text);
+            this.props.addReminder(this.state.text, this.state.dueDate);
         }
     }, {
         key: 'deleteReminder',
@@ -75586,6 +75587,13 @@ var ReminderPro = function (_Component) {
                                     _this3.addReminder();
                                 }
                             }
+                        }),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+                            className: "form-control",
+                            type: "datetime-local",
+                            onChange: function onChange(event) {
+                                return _this3.setState({ dueDate: event.target.value });
+                            }
                         })
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -75626,10 +75634,11 @@ function mapStateToProps(state) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(225);
 
 
-var addReminder = function addReminder(text) {
+var addReminder = function addReminder(text, dueDate) {
     var action = {
         type: __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* ADD_REMINDER */],
-        text: text
+        text: text,
+        dueDate: dueDate
     };
 
     console.log('action in addReminder', action);
@@ -75658,9 +75667,14 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 
 var reminder = function reminder(action) {
+    var text = action.text,
+        dueDate = action.dueDate;
+
+
     return {
-        text: action.text,
-        id: Math.random()
+        id: Math.random(),
+        text: text,
+        dueDate: dueDate
     };
 };
 

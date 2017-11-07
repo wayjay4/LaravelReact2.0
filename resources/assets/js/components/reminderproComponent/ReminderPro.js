@@ -7,12 +7,13 @@ class ReminderPro extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            text: ''
+            text: '',
+            dueDate: ''
         }
     }
 
     addReminder() {
-        this.props.addReminder(this.state.text);
+        this.props.addReminder(this.state.text, this.state.dueDate);
     }
 
     deleteReminder(id) {
@@ -66,6 +67,12 @@ class ReminderPro extends Component {
                                     this.addReminder();
                                 }
                             }}
+                        />
+
+                        <input
+                            className={"form-control"}
+                            type={"datetime-local"}
+                            onChange={(event) => this.setState({dueDate: event.target.value})}
                         />
                     </div>
 
