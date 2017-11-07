@@ -17,9 +17,17 @@ require('./bootstrap');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
 import Master from './Master';
+import reducer from './reducers';
+
+const store = createStore(reducer);
 
 ReactDOM.render(
-  <Master />,
-  document.getElementById('root')
+    <Provider store={store}>
+        <Master />
+    </Provider>,
+    document.getElementById('root')
 );
