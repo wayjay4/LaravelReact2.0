@@ -75517,8 +75517,7 @@ var ReminderPro = function (_Component) {
     }, {
         key: 'deleteReminder',
         value: function deleteReminder(id) {
-            console.log('deleting in application', id);
-            console.log('this.props', this.props);
+            this.props.deleteReminder(id);
         }
     }, {
         key: 'renderReminders',
@@ -75665,6 +75664,18 @@ var reminder = function reminder(action) {
     };
 };
 
+var removeById = function removeById() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    var id = arguments[1];
+
+    var reminders = state.filter(function (reminder) {
+        return reminder.id !== id;
+    });
+    console.log('new reduced reminders', reminders);
+
+    return reminders;
+};
+
 var reminders = function reminders() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
     var action = arguments[1];
@@ -75675,6 +75686,9 @@ var reminders = function reminders() {
         case __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* ADD_REMINDER */]:
             reminders = [].concat(_toConsumableArray(state), [reminder(action)]);
             console.log('reminders as state', reminders);
+            return reminders;
+        case __WEBPACK_IMPORTED_MODULE_0__constants__["b" /* DELETE_REMINDER */]:
+            reminders = removeById(state, action.id);
             return reminders;
         default:
             return state;
