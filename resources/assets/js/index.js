@@ -16,10 +16,10 @@ require('./bootstrap');
 //require('./components/Example');
 
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import Master from './Master';
 
-render(
+ReactDOM.render(
   <Master />,
   document.getElementById('root')
 );

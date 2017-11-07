@@ -18586,7 +18586,7 @@ __webpack_require__(213);
 
 
 
-Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Master__["a" /* default */], null), document.getElementById('root'));
+__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Master__["a" /* default */], null), document.getElementById('root'));
 
 /***/ }),
 /* 213 */
@@ -73363,12 +73363,36 @@ var ReminderPro = function (_Component) {
     }
 
     _createClass(ReminderPro, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                null,
-                'Reminder Pro'
+                "div",
+                { className: "ReminderPro" },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "div",
+                    { className: "title" },
+                    "Reminder Pro"
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "div",
+                    { className: "form-inline" },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "form-group" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
+                            className: "form-control",
+                            placeholder: "I have too..."
+                        })
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "button",
+                        {
+                            type: "button",
+                            className: "btn btn-success"
+                        },
+                        "Add Reminder"
+                    )
+                )
             );
         }
     }]);
