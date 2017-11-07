@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 import { addReminder, deleteReminder } from '../../actions/index';
 
@@ -33,7 +34,8 @@ class ReminderPro extends Component {
                                 key={reminder.id}
                             >
                                 <div className={"list-item"}>
-                                    {reminder.text}
+                                    <div>{reminder.text}</div>
+                                    <div><em>{moment(new Date(reminder.dueDate)).fromNow()}</em></div>
                                 </div>
                                 <div
                                     className={"list-item delete-button"}
