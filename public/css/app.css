@@ -39,14 +39,15 @@
   display: inline;
   margin: 15px;
 }
+
+
+
+/*
+* — Projects 3 —
+* -->MusicMaster
 */
 
 /*
-* — Projects 3 & 4 —
-* -->CountClock
-* -->StopWatch
-*/
-
 body {
   background: #000;
   color: #fff;
@@ -63,28 +64,18 @@ body {
 
 /*Profile*/
 
+/*
 .profile {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .profile-info {
   margin-left: 10px;
   text-align: left;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .profile-img {
@@ -92,21 +83,21 @@ body {
   height: 150px;
   border: 3px solid #fff;
   border-radius: 75px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .profile-name {
   font-size: 26px;
 }
 
-.profile-followers,
-.profile-genres {
+.profile-followers, .profile-genres {
   font-size: 18px;
 }
+*/
 
 /*Gallery*/
 
+/*
 .track {
   display: inline-block;
   width: 220px;
@@ -122,8 +113,7 @@ body {
   height: 220px;
   border: 3px solid #fff;
   border-radius: 3px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   position: absolute;
 }
 
@@ -162,29 +152,22 @@ body {
 
 .track-play-inner:hover {
   opacity: 0.8;
-  -webkit-animation-name: fade-in;
-          animation-name: fade-in;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
-}
-
-@-webkit-keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 0.8;
-  }
+  animation-name: fade-in;
+  animation-duration: 0.5s;
 }
 
 @keyframes fade-in {
   from {
     opacity: 0;
   }
-
   to {
     opacity: 0.8;
   }
 }
+*/
+
+/*
+* — Projects 4 —
+* -->ReminderPro
+*/
 

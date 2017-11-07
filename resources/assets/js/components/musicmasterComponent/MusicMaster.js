@@ -45,7 +45,7 @@ export default class MusicMaster extends Component {
                     .then(json => {
                         const { tracks } = json;
                         this.setState({ tracks })
-                    });     
+                    });
             });
     }
 
