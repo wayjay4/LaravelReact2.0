@@ -35454,9 +35454,11 @@ return zhTw;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ADD_REMINDER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return DELETE_REMINDER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return DELETE_REMINDER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return CLEAR_REMINDERS; });
 var ADD_REMINDER = 'ADD_REMINDER';
 var DELETE_REMINDER = 'DELETE_REMINDER';
+var CLEAR_REMINDERS = 'CLEAR_REMINDERS';
 
 /***/ }),
 /* 345 */
@@ -91456,6 +91458,11 @@ var ReminderPro = function (_Component) {
             this.props.deleteReminder(id);
         }
     }, {
+        key: 'clearReminders',
+        value: function clearReminders() {
+            this.props.clearReminders();
+        }
+    }, {
         key: 'renderReminders',
         value: function renderReminders() {
             var _this2 = this;
@@ -91556,7 +91563,17 @@ var ReminderPro = function (_Component) {
                         'Add Reminder'
                     )
                 ),
-                this.renderReminders()
+                this.renderReminders(),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    {
+                        className: "btn btn-danger",
+                        onClick: function onClick() {
+                            return _this3.props.clearReminders();
+                        }
+                    },
+                    'Clear Reminders'
+                )
             );
         }
     }]);
@@ -91570,7 +91587,7 @@ function mapStateToProps(state) {
     };
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, { addReminder: __WEBPACK_IMPORTED_MODULE_3__actions_index__["a" /* addReminder */], deleteReminder: __WEBPACK_IMPORTED_MODULE_3__actions_index__["b" /* deleteReminder */] })(ReminderPro));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, { addReminder: __WEBPACK_IMPORTED_MODULE_3__actions_index__["a" /* addReminder */], deleteReminder: __WEBPACK_IMPORTED_MODULE_3__actions_index__["c" /* deleteReminder */], clearReminders: __WEBPACK_IMPORTED_MODULE_3__actions_index__["b" /* clearReminders */] })(ReminderPro));
 
 /***/ }),
 /* 642 */
@@ -91836,7 +91853,8 @@ webpackContext.id = 642;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return addReminder; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return deleteReminder; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return deleteReminder; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return clearReminders; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(344);
 
 
@@ -91854,12 +91872,18 @@ var addReminder = function addReminder(text, dueDate) {
 
 var deleteReminder = function deleteReminder(id) {
     var action = {
-        type: __WEBPACK_IMPORTED_MODULE_0__constants__["b" /* DELETE_REMINDER */],
+        type: __WEBPACK_IMPORTED_MODULE_0__constants__["c" /* DELETE_REMINDER */],
         id: id
     };
 
     console.log('deleting in actions', action);
     return action;
+};
+
+var clearReminders = function clearReminders() {
+    return {
+        type: __WEBPACK_IMPORTED_MODULE_0__constants__["b" /* CLEAR_REMINDERS */]
+    };
 };
 
 /***/ }),
@@ -91911,8 +91935,12 @@ var reminders = function reminders() {
             reminders = [].concat(_toConsumableArray(state), [reminder(action)]);
             Object(__WEBPACK_IMPORTED_MODULE_1_sfcookies__["bake_cookie"])('reminders', reminders);
             return reminders;
-        case __WEBPACK_IMPORTED_MODULE_0__constants__["b" /* DELETE_REMINDER */]:
+        case __WEBPACK_IMPORTED_MODULE_0__constants__["c" /* DELETE_REMINDER */]:
             reminders = removeById(state, action.id);
+            Object(__WEBPACK_IMPORTED_MODULE_1_sfcookies__["bake_cookie"])('reminders', reminders);
+            return reminders;
+        case __WEBPACK_IMPORTED_MODULE_0__constants__["b" /* CLEAR_REMINDERS */]:
+            reminders = [];
             Object(__WEBPACK_IMPORTED_MODULE_1_sfcookies__["bake_cookie"])('reminders', reminders);
             return reminders;
         default:
