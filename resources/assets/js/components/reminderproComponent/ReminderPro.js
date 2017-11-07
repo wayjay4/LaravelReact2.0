@@ -15,20 +15,45 @@ class ReminderPro extends Component {
         this.props.addReminder(this.state.text);
     }
 
+    renderReminders() {
+        const { reminders } = this.props;
+
+        return (
+            <ul className={"list-group col-sm-4"}>
+                {
+                    reminders.map(reminder => {
+                        return(
+                            <li
+                                className={"list-group-item"}
+                                key={reminder.id}
+                            >
+                                <div>{reminder.text}</div>
+                            </li>
+                        )
+                    })
+                }
+            </ul>
+        );
+    }
+
     render() {
-        console.log('this.props', this.props);
         return(
             <div className={"ReminderPro"}>
                 <div className={"title"}>
                     Reminder Pro
                 </div>
 
-                <div className={"form-inline"}>
+                <div className={"form-inline reminder-form"}>
                     <div className={"form-group"}>
                         <input
                             className={"form-control"}
                             placeholder={"I have too..."}
                             onChange={(event) => this.setState({text: event.target.value})}
+                            onKeyPress={(event) => {
+                                if(event.key === 'Enter') {
+                                    this.addReminder();
+                                }
+                            }}
                         />
                     </div>
 
@@ -40,6 +65,8 @@ class ReminderPro extends Component {
                         Add Reminder
                     </button>
                 </div>
+
+                { this.renderReminders() }
             </div>
         );
     }

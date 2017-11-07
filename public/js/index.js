@@ -75505,11 +75505,35 @@ var ReminderPro = function (_Component) {
             this.props.addReminder(this.state.text);
         }
     }, {
+        key: 'renderReminders',
+        value: function renderReminders() {
+            var reminders = this.props.reminders;
+
+
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'ul',
+                { className: "list-group col-sm-4" },
+                reminders.map(function (reminder) {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'li',
+                        {
+                            className: "list-group-item",
+                            key: reminder.id
+                        },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            null,
+                            reminder.text
+                        )
+                    );
+                })
+            );
+        }
+    }, {
         key: 'render',
         value: function render() {
             var _this2 = this;
 
-            console.log('this.props', this.props);
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: "ReminderPro" },
@@ -75520,7 +75544,7 @@ var ReminderPro = function (_Component) {
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
-                    { className: "form-inline" },
+                    { className: "form-inline reminder-form" },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: "form-group" },
@@ -75529,6 +75553,11 @@ var ReminderPro = function (_Component) {
                             placeholder: "I have too...",
                             onChange: function onChange(event) {
                                 return _this2.setState({ text: event.target.value });
+                            },
+                            onKeyPress: function onKeyPress(event) {
+                                if (event.key === 'Enter') {
+                                    _this2.addReminder();
+                                }
                             }
                         })
                     ),
@@ -75543,7 +75572,8 @@ var ReminderPro = function (_Component) {
                         },
                         'Add Reminder'
                     )
-                )
+                ),
+                this.renderReminders()
             );
         }
     }]);
