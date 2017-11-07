@@ -1,6 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class ReminderPro extends Component {
+import { addReminder } from '../../actions/index';
+
+class ReminderPro extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: ''
+        }
+    }
+
+    addReminder() {
+        this.props.addReminder(this.state.text);
+    }
+
     render() {
         return(
             <div className={"ReminderPro"}>
@@ -13,12 +27,14 @@ export default class ReminderPro extends Component {
                         <input
                             className={"form-control"}
                             placeholder={"I have too..."}
+                            onChange={(event) => this.setState({text: event.target.value})}
                         />
                     </div>
 
                     <button
                         type={"button"}
                         className={"btn btn-success"}
+                        onClick={() => this.addReminder()}
                     >
                         Add Reminder
                     </button>
@@ -27,3 +43,5 @@ export default class ReminderPro extends Component {
         );
     }
 }
+
+export default connect(null, { addReminder })(ReminderPro)

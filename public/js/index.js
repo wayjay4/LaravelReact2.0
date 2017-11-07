@@ -62099,7 +62099,7 @@ module.exports = ReactDOMInvalidARIAHook;
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["a"]; });
 /* unused harmony reexport createProvider */
 /* unused harmony reexport connectAdvanced */
-/* unused harmony reexport connect */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_2__connect_connect__["a"]; });
 
 
 
@@ -62476,7 +62476,7 @@ function createConnect() {
   };
 }
 
-/* unused harmony default export */ var _unused_webpack_default_export = (createConnect());
+/* harmony default export */ __webpack_exports__["a"] = (createConnect());
 
 /***/ }),
 /* 353 */
@@ -75470,6 +75470,8 @@ function returnAccessToken() {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__(348);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actions_index__ = __webpack_require__(529);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -75480,44 +75482,65 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
+
+
 var ReminderPro = function (_Component) {
     _inherits(ReminderPro, _Component);
 
-    function ReminderPro() {
+    function ReminderPro(props) {
         _classCallCheck(this, ReminderPro);
 
-        return _possibleConstructorReturn(this, (ReminderPro.__proto__ || Object.getPrototypeOf(ReminderPro)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (ReminderPro.__proto__ || Object.getPrototypeOf(ReminderPro)).call(this, props));
+
+        _this.state = {
+            text: ''
+        };
+        return _this;
     }
 
     _createClass(ReminderPro, [{
-        key: "render",
+        key: 'addReminder',
+        value: function addReminder() {
+            this.props.addReminder(this.state.text);
+        }
+    }, {
+        key: 'render',
         value: function render() {
+            var _this2 = this;
+
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
+                'div',
                 { className: "ReminderPro" },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
+                    'div',
                     { className: "title" },
-                    "Reminder Pro"
+                    'Reminder Pro'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
+                    'div',
                     { className: "form-inline" },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "div",
+                        'div',
                         { className: "form-group" },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
                             className: "form-control",
-                            placeholder: "I have too..."
+                            placeholder: "I have too...",
+                            onChange: function onChange(event) {
+                                return _this2.setState({ text: event.target.value });
+                            }
                         })
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "button",
+                        'button',
                         {
                             type: "button",
-                            className: "btn btn-success"
+                            className: "btn btn-success",
+                            onClick: function onClick() {
+                                return _this2.addReminder();
+                            }
                         },
-                        "Add Reminder"
+                        'Add Reminder'
                     )
                 )
             );
@@ -75527,7 +75550,7 @@ var ReminderPro = function (_Component) {
     return ReminderPro;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (ReminderPro);
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(null, { addReminder: __WEBPACK_IMPORTED_MODULE_2__actions_index__["a" /* addReminder */] })(ReminderPro));
 
 /***/ }),
 /* 522 */
@@ -75577,6 +75600,30 @@ var ADD_REMINDER = 'ADD_REMINDER';
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 525 */,
+/* 526 */,
+/* 527 */,
+/* 528 */,
+/* 529 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return addReminder; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(523);
+
+
+var addReminder = function addReminder(text) {
+    var action = {
+        type: __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* ADD_REMINDER */],
+        text: text
+    };
+
+    console.log('action in addReminder', action);
+
+    return action;
+};
 
 /***/ })
 /******/ ]);
