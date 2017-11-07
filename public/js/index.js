@@ -75509,6 +75509,7 @@ var ReminderPro = function (_Component) {
         value: function render() {
             var _this2 = this;
 
+            console.log('this.props', this.props);
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: "ReminderPro" },
@@ -75550,7 +75551,13 @@ var ReminderPro = function (_Component) {
     return ReminderPro;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(null, { addReminder: __WEBPACK_IMPORTED_MODULE_2__actions_index__["a" /* addReminder */] })(ReminderPro));
+function mapStateToProps(state) {
+    return {
+        reminders: state
+    };
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps, { addReminder: __WEBPACK_IMPORTED_MODULE_2__actions_index__["a" /* addReminder */] })(ReminderPro));
 
 /***/ }),
 /* 522 */
