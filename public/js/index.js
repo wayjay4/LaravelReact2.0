@@ -28038,6 +28038,8 @@ function continueResumableUpload(location, authWrapper, url, blob, chunkSize, ma
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__firebase__ = __webpack_require__(353);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28048,22 +28050,103 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
+
 var Signin = function (_Component) {
     _inherits(Signin, _Component);
 
-    function Signin() {
+    function Signin(props) {
         _classCallCheck(this, Signin);
 
-        return _possibleConstructorReturn(this, (Signin.__proto__ || Object.getPrototypeOf(Signin)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Signin.__proto__ || Object.getPrototypeOf(Signin)).call(this, props));
+
+        _this.state = {
+            email: '',
+            password: '',
+            error: {
+                message: ''
+            }
+        };
+        return _this;
     }
 
     _createClass(Signin, [{
+        key: 'signIn',
+        value: function signIn() {
+            var _this2 = this;
+
+            console.log('this.state', this.state);
+            var _state = this.state,
+                email = _state.email,
+                password = _state.password;
+
+            __WEBPACK_IMPORTED_MODULE_2__firebase__["a" /* firebaseApp */].auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+                _this2.setState({ error: error });
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
+            var _this3 = this;
+
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
-                null,
-                'Signin App'
+                {
+                    className: "form-inline",
+                    style: { margin: '5%' }
+                },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'h2',
+                    null,
+                    'Sign In'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: "form-group" },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+                        className: "form-group",
+                        type: "text",
+                        style: { marginRight: '5px' },
+                        placeholder: "email",
+                        onChange: function onChange(event) {
+                            return _this3.setState({ email: event.target.value });
+                        }
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+                        className: "form-group",
+                        type: "password",
+                        style: { marginRight: '5px' },
+                        placeholder: "password",
+                        onChange: function onChange(event) {
+                            return _this3.setState({ password: event.target.value });
+                        }
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'button',
+                        {
+                            className: "btn btn-primary",
+                            type: "button",
+                            onClick: function onClick() {
+                                return _this3.signIn();
+                            }
+                        },
+                        'Sign In'
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    null,
+                    this.state.error.message
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_1_react_router__["a" /* Link */],
+                        { to: '/signup' },
+                        'Sign up instead.'
+                    )
+                )
             );
         }
     }]);
@@ -28080,7 +28163,8 @@ var Signin = function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__firebase__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__firebase__ = __webpack_require__(353);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28088,6 +28172,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -28115,13 +28200,11 @@ var Signup = function (_Component) {
         value: function signUp() {
             var _this2 = this;
 
-            console.log('this.state', this.state);
-
             var _state = this.state,
                 email = _state.email,
                 password = _state.password;
 
-            __WEBPACK_IMPORTED_MODULE_1__firebase__["a" /* firebaseApp */].auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+            __WEBPACK_IMPORTED_MODULE_2__firebase__["a" /* firebaseApp */].auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
                 _this2.setState({ error: error });
             });
         }
@@ -28178,6 +28261,15 @@ var Signup = function (_Component) {
                     'div',
                     null,
                     this.state.error.message
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    null,
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_1_react_router__["a" /* Link */],
+                        { to: '/signin' },
+                        'Already a user? Sign in instead.'
+                    )
                 )
             );
         }
@@ -28243,11 +28335,11 @@ __WEBPACK_IMPORTED_MODULE_3__firebase__["a" /* firebaseApp */].auth().onAuthStat
 });
 
 __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    __WEBPACK_IMPORTED_MODULE_2_react_router__["b" /* Router */],
-    { path: "/", history: __WEBPACK_IMPORTED_MODULE_2_react_router__["c" /* browserHistory */] },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["a" /* Route */], { path: "/goalcoach", component: __WEBPACK_IMPORTED_MODULE_4__components_goalcoachComponent_GoalCoach__["a" /* default */] }),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["a" /* Route */], { path: "/signin", component: __WEBPACK_IMPORTED_MODULE_5__components_goalcoachComponent_Signin__["a" /* default */] }),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["a" /* Route */], { path: "/signup", component: __WEBPACK_IMPORTED_MODULE_6__components_goalcoachComponent_Signup__["a" /* default */] })
+    __WEBPACK_IMPORTED_MODULE_2_react_router__["c" /* Router */],
+    { path: "/", history: __WEBPACK_IMPORTED_MODULE_2_react_router__["d" /* browserHistory */] },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["b" /* Route */], { path: "/goalcoach", component: __WEBPACK_IMPORTED_MODULE_4__components_goalcoachComponent_GoalCoach__["a" /* default */] }),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["b" /* Route */], { path: "/signin", component: __WEBPACK_IMPORTED_MODULE_5__components_goalcoachComponent_Signin__["a" /* default */] }),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router__["b" /* Route */], { path: "/signup", component: __WEBPACK_IMPORTED_MODULE_6__components_goalcoachComponent_Signup__["a" /* default */] })
 ), document.getElementById('root'));
 
 /***/ }),
@@ -69952,9 +70044,9 @@ module.exports = ReactDOMInvalidARIAHook;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Router__ = __webpack_require__(328);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__Router__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_0__Router__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Link__ = __webpack_require__(154);
-/* unused harmony reexport Link */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__Link__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__IndexLink__ = __webpack_require__(335);
 /* unused harmony reexport IndexLink */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__withRouter__ = __webpack_require__(336);
@@ -69966,7 +70058,7 @@ module.exports = ReactDOMInvalidARIAHook;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(155);
 /* unused harmony reexport Redirect */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(340);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__RouteUtils__ = __webpack_require__(27);
 /* unused harmony reexport createRoutes */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__RouterContext__ = __webpack_require__(94);
@@ -69983,7 +70075,7 @@ module.exports = ReactDOMInvalidARIAHook;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__applyRouterMiddleware__ = __webpack_require__(346);
 /* unused harmony reexport applyRouterMiddleware */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__browserHistory__ = __webpack_require__(347);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_15__browserHistory__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_15__browserHistory__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__hashHistory__ = __webpack_require__(350);
 /* unused harmony reexport hashHistory */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__createMemoryHistory__ = __webpack_require__(156);

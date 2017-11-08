@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import { firebaseApp } from '../../firebase';
 
 export default class Signup extends Component {
@@ -15,8 +16,6 @@ export default class Signup extends Component {
     }
 
     signUp() {
-        console.log('this.state', this.state);
-
         const { email, password } = this.state;
         firebaseApp.auth().createUserWithEmailAndPassword(email, password)
             .catch((error) => {
@@ -60,6 +59,12 @@ export default class Signup extends Component {
 
                 <div>
                     {this.state.error.message}
+                </div>
+
+                <div>
+                    <Link to={'/signin'}>
+                        Already a user? Sign in instead.
+                    </Link>
                 </div>
             </div>
         );
