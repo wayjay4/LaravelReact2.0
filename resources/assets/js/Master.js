@@ -5,6 +5,7 @@ import Cdclock from './components/cdclockComponent/Cdclock';
 import Stopwatch from './components/stopwatchComponent/Stopwatch';
 import MusicMaster from './components/musicmasterComponent/MusicMaster';
 import ReminderPro from './components/reminderproComponent/ReminderPro';
+import GoalCoach from './components/goalcoachComponent/GoalCoach'
 
 export default class Master extends Component {
     render() {
@@ -17,8 +18,10 @@ export default class Master extends Component {
                 <hr />
                 <MusicMaster />
                 <hr />
-                */}
                 <ReminderPro />
+                <hr />
+                */}
+                <GoalCoach />
             </div>
         );
     }
