@@ -1,3 +1,5 @@
+// FOR THE REMINDERPRO WEB APPLICATION
+/*
 import { ADD_REMINDER, DELETE_REMINDER, CLEAR_REMINDERS } from "../constants";
 import { bake_cookie, read_cookie } from 'sfcookies';
 
@@ -41,5 +43,24 @@ const  reminders = (state = [], action) => {
 } ;
 
 export default reminders;
+*/
 
+// FOR THE GOALCOACH WEB  APPLICATION
+import { SIGNED_IN } from "../constants";
 
+let user = {
+    email: null
+}
+
+export default (state = user, action) => {
+    switch(action.type) {
+        case SIGNED_IN:
+            const { email } = action;
+            user = {
+                email
+            };
+            return user;
+        default:
+            return state;
+    }
+}

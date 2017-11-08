@@ -1,3 +1,5 @@
+// FOR THE REMINDERPRO WEB APPLICATION
+/*
 import {ADD_REMINDER, DELETE_REMINDER, CLEAR_REMINDERS} from "../constants";
 
 export const addReminder = (text, dueDate) => {
@@ -26,4 +28,17 @@ export const clearReminders = () => {
     return {
         type: CLEAR_REMINDERS
     }
+}
+*/
+
+// FOR THE GOALCOACH WEB  APPLICATION
+import { SIGNED_IN } from "../constants";
+
+export function logUser(email) {
+    const action = {
+        type: SIGNED_IN,
+        email
+    }
+
+    return action;
 }
