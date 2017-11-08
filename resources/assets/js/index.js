@@ -13,21 +13,19 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-//require('./components/Example');
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { Router, Route, browserHistory } from 'react-router';
 
-import Master from './Master';
-import reducer from './reducers';
-
-const store = createStore(reducer);
+import GoalCoach from './components/goalcoachComponent/GoalCoach';
+import Signin from './components/goalcoachComponent/Signin';
+import Signup from './components/goalcoachComponent/Signup';
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Master />
-    </Provider>,
+    <Router path={"/"} history={browserHistory}>
+        <Route path={"/goalcoach"} component={GoalCoach} />
+        <Route path={"/signin"} component={Signin} />
+        <Route path={"/signup"} component={Signup} />
+    </Router>,
     document.getElementById('root')
 );
