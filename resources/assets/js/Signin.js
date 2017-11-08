@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { firebaseApp } from '../../firebase';
+import { firebaseApp } from './firebase';
 
-export default class Signup extends Component {
+export default class Signin extends Component {
     constructor(props) {
         super(props);
 
-        this.state ={
+        this.state = {
             email: '',
             password: '',
             error: {
@@ -15,11 +15,12 @@ export default class Signup extends Component {
         };
     }
 
-    signUp() {
+    signIn() {
+        console.log('this.state', this.state);
         const { email, password } = this.state;
-        firebaseApp.auth().createUserWithEmailAndPassword(email, password)
+        firebaseApp.auth().signInWithEmailAndPassword(email, password)
             .catch((error) => {
-                this.setState({error})
+               this.setState({error});
             });
     }
 
@@ -29,11 +30,11 @@ export default class Signup extends Component {
                 className={"form-inline"}
                 style={{margin: '5%'}}
             >
-                <h2>Sign Up</h2>
+                <h2>Sign In</h2>
 
                 <div className={"form-group"}>
                     <input
-                        className={"form-control"}
+                        className={"form-group"}
                         type={"text"}
                         style={{marginRight: '5px'}}
                         placeholder={"email"}
@@ -41,7 +42,7 @@ export default class Signup extends Component {
                     />
 
                     <input
-                        className={"form-control"}
+                        className={"form-group"}
                         type={"password"}
                         style={{marginRight: '5px'}}
                         placeholder={"password"}
@@ -51,9 +52,9 @@ export default class Signup extends Component {
                     <button
                         className={"btn btn-primary"}
                         type={"button"}
-                        onClick={() => this.signUp()}
+                        onClick={() => this.signIn()}
                     >
-                        Sign Up
+                        Sign In
                     </button>
                 </div>
 
@@ -62,8 +63,8 @@ export default class Signup extends Component {
                 </div>
 
                 <div>
-                    <Link to={'/signin'}>
-                        Already a user? Sign in instead.
+                    <Link to={'/signup'}>
+                        Sign up instead.
                     </Link>
                 </div>
             </div>

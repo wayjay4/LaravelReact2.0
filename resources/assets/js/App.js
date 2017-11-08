@@ -1,5 +1,6 @@
 // Layout.js
 import React, {Component} from 'react';
+import { firebaseApp } from "./firebase";
 
 import Cdclock from './components/cdclockComponent/Cdclock';
 import Stopwatch from './components/stopwatchComponent/Stopwatch';
@@ -7,7 +8,11 @@ import MusicMaster from './components/musicmasterComponent/MusicMaster';
 import ReminderPro from './components/reminderproComponent/ReminderPro';
 import GoalCoach from './components/goalcoachComponent/GoalCoach'
 
-export default class Master extends Component {
+export default class App extends Component {
+    signOut(){
+        firebaseApp.auth().signOut();
+    }
+
     render() {
         return (
             <div className="container">
@@ -22,6 +27,13 @@ export default class Master extends Component {
                 <hr />
                 */}
                 <GoalCoach />
+
+                <button
+                    className={"btn btn-success"}
+                    onClick={() => this.signOut()}
+                >
+                    Sign Out
+                </button>
             </div>
         );
     }
