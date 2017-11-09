@@ -36,6 +36,7 @@ class GoalList extends Component {
 
 function mapStateToProps(state) {
     const { goals } = state;
+
     return {
         goals
     };

@@ -105,8 +105,9 @@ class ReminderPro extends Component {
 }
 
 function mapStateToProps(state) {
+    const { reminders } = state;
     return {
-        reminders: state
+        reminders
     }
 }
 

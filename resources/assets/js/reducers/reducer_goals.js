@@ -1,3 +1,4 @@
+// FOR THE GOALCOACH WEB  APPLICATION
 import { SET_GOALS} from "../constants";
 
 export default (state = [], action) => {
