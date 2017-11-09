@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import AddGoal from './AddGoal';
 import GoalList from './GoalList'
+import CompletedGoalList from './CompletedGoalList';
 
 class GoalCoach extends Component {
     render() {
@@ -16,6 +17,11 @@ class GoalCoach extends Component {
                 <h4>Goals</h4>
 
                 <GoalList />
+                <hr />
+
+                <h4>Completed Goal List</h4>
+
+                <CompletedGoalList />
                 <hr />
             </div>
         );
