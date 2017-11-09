@@ -7,7 +7,7 @@ import GoalList from './GoalList'
 class GoalCoach extends Component {
     render() {
         return(
-            <div>
+            <div style={{margin: '5px'}}>
                 <h3>Goals</h3>
 
                 <AddGoal />
