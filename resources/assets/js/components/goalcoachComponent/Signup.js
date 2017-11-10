@@ -46,15 +46,13 @@ export default class Signup extends Component {
                         onChange={(event) => this.setState({password: event.target.value})}
                     />
 
-                    <Link to={'/app'}>
-                        <button
-                            className={"btn btn-primary"}
-                            type={"button"}
-                            onClick={() => this.signUp()}
-                        >
-                            Sign Up
-                        </button>
-                    </Link>
+                    <button
+                        className={"btn btn-primary"}
+                        type={"button"}
+                        onClick={() => this.signUp()}
+                    >
+                        Sign Up
+                    </button>
                 </div>
 
                 <div>

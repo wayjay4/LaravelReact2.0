@@ -64,7 +64,7 @@ class GoalCoach extends Component {
             if(this.state.new_user === false) {
                 return (
                     <div style={{margin: '5px'}}>
-                        <Signin/>
+                        <Signin />
 
                         <a className={"btn"} onClick={() => this.toggleSignIn()}>
                             Sign up instead.
@@ -74,7 +74,7 @@ class GoalCoach extends Component {
             } else{
                 return (
                     <div style={{margin: '5px'}}>
-                        <Signup/>
+                        <Signup />
 
                         <a className={"btn"} onClick={() => this.toggleSignIn()}>
                             Already a user? Sign in instead.
