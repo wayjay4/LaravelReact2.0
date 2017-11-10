@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setCompleted } from "../../actions";
+
 import { completeGoalRef } from "../../firebase";
+import { setCompleted } from "../../actions";
 
 class CompletedGoalList extends Component {
     componentDidMount() {

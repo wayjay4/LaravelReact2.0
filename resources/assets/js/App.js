@@ -1,6 +1,5 @@
 // Layout.js
 import React, {Component} from 'react';
-import { firebaseApp } from "./firebase";
 
 import Navigation from './Navigation';
 import Cdclock from './components/cdclockComponent/Cdclock';
@@ -10,10 +9,6 @@ import ReminderPro from './components/reminderproComponent/ReminderPro';
 import GoalCoach from './components/goalcoachComponent/GoalCoach'
 
 export default class App extends Component {
-    signOut(){
-        firebaseApp.auth().signOut();
-    }
-
     render() {
         return (
             <div className="container">
@@ -32,13 +27,6 @@ export default class App extends Component {
                 <hr />
                 */}
                 <GoalCoach />
-
-                <button
-                    className={"btn btn-danger"}
-                    onClick={() => this.signOut()}
-                >
-                    Sign Out
-                </button>
             </div>
         );
     }
