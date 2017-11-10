@@ -17,7 +17,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import {Provider } from 'react-redux';
-import { Router, Route, browserHistory } from 'react-router';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { firebaseApp } from "./firebase";
 import { logUser} from "./actions";
 import reducer from './reducers';
@@ -35,21 +35,26 @@ firebaseApp.auth().onAuthStateChanged((user) => {
        const { email } = user;
        store.dispatch(logUser(email));
 
-       browserHistory.push('/app');
+       //browserHistory.push('/app');
    }
    else {
        //console.log('user has signed out or still needs to sign in.');
 
-       browserHistory.replace('/signin');
+       //browserHistory.replace('/signin');
    }
 });
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router path={"/"} history={browserHistory}>
-            <Route path={"/app"} component={App} />
-            <Route path={"/signin"} component={Signin} />
-            <Route path={"/signup"} component={Signup} />
+        <Router path={"/"}>
+            <div>
+                <Switch>
+                    <Route exact path={"/"} component={App} />
+                    <Route path={"/app"} component={App} />
+                    <Route path={"/signin"} component={Signin} />
+                    <Route path={"/signup"} component={Signup} />
+                </Switch>
+            </div>
         </Router>
     </Provider>,
     document.getElementById('root')

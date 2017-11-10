@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import { firebaseApp } from "./firebase";
 
+import Navigation from './Navigation';
 import Cdclock from './components/cdclockComponent/Cdclock';
 import Stopwatch from './components/stopwatchComponent/Stopwatch';
 import MusicMaster from './components/musicmasterComponent/MusicMaster';
@@ -16,6 +17,10 @@ export default class App extends Component {
     render() {
         return (
             <div className="container">
+                <Navigation />
+
+                <hr />
+
                 {/*
                 <Cdclock />
                 <hr />
