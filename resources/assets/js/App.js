@@ -4,21 +4,26 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import Navigation from './Navigation';
 import AppRoutes from './AppRoutes';
+import Footer from './Footer';
 
 export default class App extends Component {
     render() {
         return (
-            <div className="container">
-                <Router path={"/"}>
-                    <div>
-                        <Navigation />
-                        
-                        <hr />
+            <Router path={'/'}>
+                <div className="app-main">
+                    <Navigation />
 
+                    <hr />
+
+                    <div className={"app-body"}>
                         <AppRoutes />
                     </div>
-                </Router>
-            </div>
+
+                    <hr />
+
+                    <Footer />
+                </div>
+            </Router>
         );
     }
 }
