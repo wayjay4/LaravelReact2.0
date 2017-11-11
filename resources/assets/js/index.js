@@ -19,13 +19,13 @@ import { createStore } from 'redux';
 import {Provider } from 'react-redux';
 import reducer from './reducers';
 
-import App from './App';
+import AppMaster from './AppMaster';
 
 const store = createStore(reducer);
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <AppMaster />
     </Provider>,
     document.getElementById('root')
 );
