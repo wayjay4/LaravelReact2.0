@@ -20,6 +20,7 @@ body {
   background-color: #555555;
   background-image: url(/images/blue-pattern-background_01.jpg?a9fa60385e327e7613b40750a750e358);
   background-size: cover;
+  color: whitesmoke;
 }
 
 /*
@@ -42,8 +43,9 @@ body {
   padding: 70px 15px;
   min-height: 100%;
   overflow: auto;
-  background-color: white;
-  border: solid medium cadetblue;
+  background-image: url(/images/trans_bdrop_02.png?69cda7c36b9f7c9e2082f12f581a1e9d);
+  background-color: transparent;
+  border: solid thin #ffffff;
 }
 
 #master-content {
