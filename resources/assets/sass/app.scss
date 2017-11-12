@@ -12,8 +12,14 @@ html, body, div#root, div#master-container {
 }
 
 body {
-  background-color: #555555;
-  background-image: url(../images/blue-pattern-background_01.jpg);
+  /*background-image: url(../images/blue-pattern-background_01.jpg);
+  background-image: url(../images/blue-pattern-background_02.jpg);
+  background-image: url(../images/blue-pattern-background_03.jpg);
+  background-image: url(../images/waterfall-background.jpg);
+  background-image: url(../images/leafwater-background.jpg);
+  background-image: url(../images/matchstrike-background.jpg);
+  background-image: url(../images/townscape_pattern_background.jpg);*/
+  background: #555555 url(../images/treehorizon-background.jpg) center center;
   background-size: cover;
   color: whitesmoke;
 }
@@ -38,9 +44,8 @@ body {
   padding: 70px 15px;
   min-height: 100%;
   overflow: auto;
-  background-image: url(../images/trans_bdrop_02.png);
-  background-color: transparent;
-  border: solid thin #ffffff;
+  background: transparent url(../images/trans_bdrop_02.png);
+  border: solid thin ghostwhite;
 }
 
 #master-content {

@@ -17,8 +17,14 @@ div#master-container {
 }
 
 body {
-  background-color: #555555;
-  background-image: url(/images/blue-pattern-background_01.jpg?a9fa60385e327e7613b40750a750e358);
+  /*background-image: url(../images/blue-pattern-background_01.jpg);
+  background-image: url(../images/blue-pattern-background_02.jpg);
+  background-image: url(../images/blue-pattern-background_03.jpg);
+  background-image: url(../images/waterfall-background.jpg);
+  background-image: url(../images/leafwater-background.jpg);
+  background-image: url(../images/matchstrike-background.jpg);
+  background-image: url(../images/townscape_pattern_background.jpg);*/
+  background: #555555 url(/images/treehorizon-background.jpg?742b9d094bd0243ad65c26e61ad7b9d7) center center;
   background-size: cover;
   color: whitesmoke;
 }
@@ -43,9 +49,8 @@ body {
   padding: 70px 15px;
   min-height: 100%;
   overflow: auto;
-  background-image: url(/images/trans_bdrop_02.png?69cda7c36b9f7c9e2082f12f581a1e9d);
-  background-color: transparent;
-  border: solid thin #ffffff;
+  background: transparent url(/images/trans_bdrop_02.png?a3f0a64421f2906151088aa9a350520b);
+  border: solid thin ghostwhite;
 }
 
 #master-content {
