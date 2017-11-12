@@ -2,10 +2,69 @@
 * === CSS Hub for ReactJS projects ===
 */
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body, div#root, div#master-container {
+  height: 100%;
+}
+
+body {
+  background-color: #555555;
+  background-image: url(../images/blue-pattern-background_01.jpg);
+  background-size: cover;
+}
+
 /*
 * — Master Component —
 */
 
+#master-container {
+  margin: 0;
+}
+
+#master-header {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+}
+
+#master-body {
+  margin: 0px 75px;
+  padding: 70px 15px;
+  min-height: 100%;
+  overflow: auto;
+  background-color: white;
+  border: solid medium cadetblue;
+}
+
+#master-content {
+  padding: 15px;
+  border: solid thin cadetblue;
+}
+
+#master-footer {
+  height: 53px;
+  width: 100%;
+  margin-top: -53px;
+  padding: 15px 2px 0px 2px;
+  clear: both;
+  background-color: #222222;
+  text-align: center;
+  border: solid thin black;
+  border-radius: 4px;
+}
+
+/*
+* — Footer Component —
+*/
+
+#app-footer > footer > p {
+  color: whitesmoke;
+}
 
 
 /*

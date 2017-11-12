@@ -10,20 +10,18 @@ export default class AppMaster extends Component {
     render() {
         return (
             <Router path={'/'}>
-                <div className="master-body">
-                    <div className={"master-header"}>
+                <div id="master-container">
+                    <div id={"master-header"}>
                         <AppNavigation />
                     </div>
 
-                    <hr />
-
-                    <div className={"master-content"}>
-                        <AppRoutes />
+                    <div id={"master-body"}>
+                        <div id={"master-content"}>
+                            <AppRoutes />
+                        </div>
                     </div>
 
-                    <hr />
-
-                    <div className={"master-footer"}>
+                    <div id={"master-footer"}>
                         <AppFooter />
                     </div>
                 </div>
