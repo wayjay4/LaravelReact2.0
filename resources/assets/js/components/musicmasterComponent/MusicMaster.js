@@ -3,6 +3,7 @@ import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
 import Profile from './Profile';
 import Gallery from './Gallery';
 import { getAccessToken } from  './myLib'
+import '../../../sass/musicmasterCSS.css';
 
 export default class MusicMaster extends Component {
     constructor(props) {
@@ -12,6 +13,15 @@ export default class MusicMaster extends Component {
             artist: null,
             tracks: []
         };
+    }
+
+    runGetAccessToken(){
+        let accessToken = getAccessToken();
+        console.log('accessToken', accessToken);
+    }
+
+    componentWillMount(){
+        return this.runGetAccessToken();
     }
 
     search() {
@@ -51,10 +61,10 @@ export default class MusicMaster extends Component {
 
     render() {
         return (
-            <div className={"App"}>
-                <div className={"App-title"}>Music Master</div>
+            <div className={"musicmaster-container"}>
+                <div className={"musicmaster-title"}>Music Master</div>
 
-                <div>
+                <div className={"musicmaster-search"}>
                     <FormGroup>
                         <InputGroup>
                             <FormControl
@@ -76,6 +86,7 @@ export default class MusicMaster extends Component {
                     </FormGroup>
                 </div>
 
+                <div>
                 {
                     (this.state.artist !== null) ?
                         <div>
@@ -90,6 +101,7 @@ export default class MusicMaster extends Component {
                         :
                         <div></div>
                 }
+                </div>
             </div>
         );
     }
