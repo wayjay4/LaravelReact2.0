@@ -12,13 +12,13 @@ export default class AppRoutes extends Component {
     render() {
         return (
             <Switch>
-                <Route exact path={'/'} component={Home} />
-                <Route path={'/home'} component={Home} />
-                <Route path={'/cdclock'} component={Cdclock} />
-                <Route path={'/goalcoach'} component={GoalCoach} />
-                <Route path={'/musicmaster'} component={MusicMaster} />
-                <Route path={'/reminderpro'} component={ReminderPro} />
-                <Route path={'/stopwatch'} component={Stopwatch} />
+                <Route exact path={'/projects'} component={Home} />
+                <Route path={'/projects/home'} component={Home} />
+                <Route path={'/projects/cdclock'} component={Cdclock} />
+                <Route path={'/projects/goalcoach'} component={GoalCoach} />
+                <Route path={'/projects/musicmaster'} component={MusicMaster} />
+                <Route path={'/projects/reminderpro'} component={ReminderPro} />
+                <Route path={'/projects/stopwatch'} component={Stopwatch} />
             </Switch>
         );
     }

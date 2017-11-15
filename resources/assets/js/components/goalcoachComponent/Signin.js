@@ -34,7 +34,7 @@ export default class Signin extends Component {
                     <input
                         className={"form-group"}
                         type={"text"}
-                        style={{marginRight: '5px'}}
+                        style={{marginRight: '5px', color: 'black'}}
                         placeholder={"email"}
                         onChange={(event) => this.setState({email: event.target.value})}
                     />
@@ -42,7 +42,7 @@ export default class Signin extends Component {
                     <input
                         className={"form-group"}
                         type={"password"}
-                        style={{marginRight: '5px'}}
+                        style={{marginRight: '5px', color: 'black'}}
                         placeholder={"password"}
                         onChange={(event) => this.setState({password: event.target.value})}
                     />

@@ -33,7 +33,7 @@ export default class Signup extends Component {
                     <input
                         className={"form-control"}
                         type={"text"}
-                        style={{marginRight: '5px'}}
+                        style={{marginRight: '5px', color: 'black'}}
                         placeholder={"email"}
                         onChange={(event) => this.setState({email: event.target.value})}
                     />
@@ -41,7 +41,7 @@ export default class Signup extends Component {
                     <input
                         className={"form-control"}
                         type={"password"}
-                        style={{marginRight: '5px'}}
+                        style={{marginRight: '5px', color: 'black'}}
                         placeholder={"password"}
                         onChange={(event) => this.setState({password: event.target.value})}
                     />

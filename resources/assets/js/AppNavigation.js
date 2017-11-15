@@ -10,8 +10,8 @@ export default class AppNavigation extends Component {
                 <Navbar inverse collapseOnSelect>
                     <Navbar.Header>
                         <Navbar.Brand>
-                            <Link to={'/home'}>
-                                My Awesome Apps
+                            <Link to={'/projects/home'}>
+                                Laravel/ReactJS Projects
                             </Link>
                         </Navbar.Brand>
                         <Navbar.Toggle />
@@ -19,46 +19,50 @@ export default class AppNavigation extends Component {
 
                     <Navbar.Collapse>
                         <Nav>
-                            <LinkContainer to={'/goalcoach'}>
-                                <NavItem eventKey={1}>Goal Coach</NavItem>
-                            </LinkContainer>
-                            <LinkContainer to={'/reminderpro'}>
-                                <NavItem eventKey={2}>Reminder Pro</NavItem>
-                            </LinkContainer>
+                            <div style={{display: 'none'}}>
+                                <LinkContainer to={'/projects/home'}>
+                                    <NavItem eventKey={1}>Home</NavItem>
+                                </LinkContainer>
+                                <LinkContainer to={'/projects/reminderpro'}>
+                                    <NavItem eventKey={2}>Reminder Pro</NavItem>
+                                </LinkContainer>
+                            </div>
 
-                            <NavDropdown eventKey={3} title="My ReactJS Projects" id="basic-nav-dropdown">
-                                <LinkContainer to={'/home'}>
+                            <NavDropdown eventKey={3} title="Project Listings" id="basic-nav-dropdown">
+                                <LinkContainer to={'/projects/home'}>
                                     <MenuItem eventKey={3.1}>Home Page</MenuItem>
                                 </LinkContainer>
 
                                 <MenuItem divider />
 
-                                <LinkContainer to={'/cdclock'}>
+                                <LinkContainer to={'/projects/cdclock'}>
                                     <MenuItem eventKey={3.2}>Countdown Clock</MenuItem>
                                 </LinkContainer>
 
-                                <LinkContainer to={'/goalcoach'}>
+                                <LinkContainer to={'/projects/goalcoach'}>
                                     <MenuItem eventKey={3.3}>Goal Coach</MenuItem>
                                 </LinkContainer>
 
-                                <LinkContainer to={'/musicmaster'}>
+                                <LinkContainer to={'/projects/musicmaster'}>
                                     <MenuItem eventKey={3.4}>Music Master</MenuItem>
                                 </LinkContainer>
 
-                                <LinkContainer to={'/reminderpro'}>
+                                <LinkContainer to={'/projects/reminderpro'}>
                                     <MenuItem eventKey={3.5}>Reminder Pro</MenuItem>
                                 </LinkContainer>
 
-                                <LinkContainer to={'/stopwatch'}>
+                                <LinkContainer to={'/projects/stopwatch'}>
                                     <MenuItem eventKey={3.6}>Stop Watch</MenuItem>
                                 </LinkContainer>
                             </NavDropdown>
                         </Nav>
 
-                        <Nav pullRight>
-                            <NavItem eventKey={1} href="#">Link Right</NavItem>
-                            <NavItem eventKey={2} href="#">Link Right</NavItem>
-                        </Nav>
+                        <div style={{display: 'none'}}>
+                            <Nav pullRight>
+                                <NavItem eventKey={1} href="#">Link Right</NavItem>
+                                <NavItem eventKey={2} href="#">Link Right</NavItem>
+                            </Nav>
+                        </div>
                     </Navbar.Collapse>
                 </Navbar>
             </div>
