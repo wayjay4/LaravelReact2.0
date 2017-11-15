@@ -16,7 +16,7 @@
 
 /*Profile*/
 
-.profile {
+.profile-container {
   display: flex;
   justify-content: center;
 }
@@ -47,7 +47,7 @@
 
 /*Gallery*/
 
-.track {
+.gallery-track {
   display: inline-block;
   width: 220px;
   height: 220px;
@@ -57,7 +57,7 @@
   position: relative;
 }
 
-.track-img {
+.gallery-track-img {
   width: 220px;
   height: 220px;
   border: 3px solid #fff;
@@ -66,7 +66,7 @@
   position: absolute;
 }
 
-.track-text {
+.gallery-track-text {
   background-color: black;
   color: white;
   opacity: 0.75;
@@ -78,13 +78,13 @@
   padding: 10px;
 }
 
-.track-play {
+.gallery-track-play {
   position: absolute;
   width: 220px;
   height: 220px;
 }
 
-.track-play-inner {
+.gallery-track-play-inner {
   position: absolute;
   text-align: center;
   font-size: 25px;
@@ -99,7 +99,7 @@
   opacity: 0;
 }
 
-.track-play-inner:hover {
+.gallery-track-play-inner:hover {
   opacity: 0.8;
   animation-name: fade-in;
   animation-duration: 0.5s;
