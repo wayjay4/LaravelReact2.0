@@ -1,0 +1,33 @@
+/*
+* — Projects 1.A —
+* -->CountClock
+*/
+
+.cdclock-container {
+    text-align: center;
+    font-size: 35px;
+    margin-top: 20%;
+}
+
+.cdclock-title {
+    font-size: 50px;
+}
+
+.cdclock-deadline-input {
+    font-size: 25px;
+    margin: 5px;
+}
+
+.cdclock-btn {
+    display: inline;
+    margin: 15px;
+}
+
+.timer-days,
+.timer-hours,
+.timer-minutes,
+.timer-seconds,
+.timer-milliseconds {
+    display: inline;
+    margin: 10px;
+}

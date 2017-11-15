@@ -41,10 +41,10 @@ export default class Timer extends Component {
     render() {
         return (
             <div>
-                <div className="Clock-days">{this.leading0(this.state.days)} days</div>
-                <div className="Clock-hours">{this.leading0(this.state.hours)} hours</div>
-                <div className="Clock-minutes">{this.leading0(this.state.minutes)} minutes</div>
-                <div className="Clock-seconds">{this.leading0(this.state.seconds)} seconds</div>
+                <div className="timer-days">{this.leading0(this.state.days)} days</div>
+                <div className="timer-hours">{this.leading0(this.state.hours)} hours</div>
+                <div className="timer-minutes">{this.leading0(this.state.minutes)} minutes</div>
+                <div className="timer-seconds">{this.leading0(this.state.seconds)} seconds</div>
             </div>
         );
     }

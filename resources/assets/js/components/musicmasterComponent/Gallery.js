@@ -49,31 +49,31 @@ export default class Gallery extends Component {
                     const trackImg = track.album.images[0].url;
 
                     return (
-                        <div
-                            className={"track"}
-                            key={key}
-                            onClick={() => this.playAudio(track.preview_url)}
-                        >
-                            <img
-                                className={"track-img"}
-                                alt={"track"}
-                                src={trackImg}
-                            />
+                            <div
+                                className={"gallery-track"}
+                                key={key}
+                                onClick={() => this.playAudio(track.preview_url)}
+                            >
+                                <img
+                                    className={"gallery-track-img"}
+                                    alt={"track"}
+                                    src={trackImg}
+                                />
 
-                            <div className={"track-play"}>
-                                <div className={"track-play-inner"}>
-                                    {
-                                        (this.state.playingUrl === track.preview_url)
-                                            ? <span>| |</span>
-                                            : <span>&#9654;</span>
-                                    }
+                                <div className={"gallery-track-play"}>
+                                    <div className={"gallery-track-play-inner"}>
+                                        {
+                                            (this.state.playingUrl === track.preview_url)
+                                                ? <span>| |</span>
+                                                : <span>&#9654;</span>
+                                        }
+                                    </div>
                                 </div>
-                            </div>
 
-                            <p className={"track-text"}>
-                                {track.name}
-                            </p>
-                        </div>
+                                <p className={"gallery-track-text"}>
+                                    {track.name}
+                                </p>
+                            </div>
                     )
                 })}
             </div>

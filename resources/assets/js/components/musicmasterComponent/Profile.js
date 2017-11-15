@@ -18,10 +18,10 @@ export default class Profile extends Component {
         }
 
         return (
-            <div className={"profile"}>
+            <div className={"profile-container"}>
                 <img
-                    alt={"Profile"}
                     className={"profile-img"}
+                    alt={"Profile"}
                     src={artist.images[0].url}
                 />
 

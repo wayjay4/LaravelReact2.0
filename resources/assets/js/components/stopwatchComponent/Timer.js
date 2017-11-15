@@ -96,17 +96,17 @@ export default class Timer extends Component {
     render() {
         return (
             <div>
-                <div className="Clock-days">{this.leading0(this.state.days)} days</div>
-                <div className="Clock-hours">{this.leading0(this.state.hours)} hours</div>
-                <div className="Clock-minutes">{this.leading0(this.state.minutes)} mins</div>
-                <div className="Clock-seconds">{this.leading0(this.state.seconds)} secs</div>
+                <div className="timer-days">{this.leading0(this.state.days)} days</div>
+                <div className="timer-hours">{this.leading0(this.state.hours)} hours</div>
+                <div className="timer-minutes">{this.leading0(this.state.minutes)} mins</div>
+                <div className="timer-seconds">{this.leading0(this.state.seconds)} secs</div>
 
                 <br />
 
                 <div>
-                    <Button className="Timer-btn" bsStyle="success" onClick={() => this.changeStartTimer()}>Start</Button>
-                    <Button className="Timer-btn" bsStyle="danger" onClick={() => this.changeStopTimer()}>Stop</Button>
-                    <Button className="Timer-btn" bsStyle="info" onClick={() => this.changeResetTimer()}>Reset</Button>
+                    <Button className="timer-btn" bsStyle="success" onClick={() => this.changeStartTimer()}>Start</Button>
+                    <Button className="timer-btn" bsStyle="danger" onClick={() => this.changeStopTimer()}>Stop</Button>
+                    <Button className="timer-btn" bsStyle="info" onClick={() => this.changeResetTimer()}>Reset</Button>
                 </div>
             </div>
         );

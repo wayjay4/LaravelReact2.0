@@ -1,0 +1,35 @@
+
+/*
+* — Projects 4 —
+* -->ReminderPro
+*/
+
+.reminderpro-container {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+}
+
+.reminderpro-title {
+    text-align: center;
+    font-size: 26px;
+}
+
+.reminderpro-form {
+    padding: 5px;
+}
+
+.reminderpro-form > div >input {
+    margin: 5px;
+}
+
+.list-item {
+    display: inline-block;
+}
+
+.reminderpro-delete-button {
+    float: right;
+    padding-left: 5px;
+}

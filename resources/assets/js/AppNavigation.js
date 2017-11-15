@@ -6,7 +6,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 export default class AppNavigation extends Component {
     render(){
         return(
-            <div className={"app-navigation"}>
+            <div className={"appnavigation-container"}>
                 <Navbar inverse collapseOnSelect>
                     <Navbar.Header>
                         <Navbar.Brand>

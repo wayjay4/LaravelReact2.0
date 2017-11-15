@@ -7,7 +7,7 @@
   padding: 0;
 }
 
-html, body, div#root, div#master-container {
+html, body, div#root, div#appmaster-container {
   height: 100%;
 }
 
@@ -33,11 +33,11 @@ body {
 * — Master Component —
 */
 
-#master-container {
+#appmaster-container {
   margin: 0;
 }
 
-#master-header {
+#appmaster-header {
   top: 0;
   left: 0;
   position: fixed;
@@ -45,7 +45,7 @@ body {
   z-index: 3;
 }
 
-#master-body {
+#appmaster-body {
   margin: 0px 75px;
   padding: 70px 15px;
   min-height: 100%;
@@ -54,12 +54,12 @@ body {
   border: solid thin ghostwhite;
 }
 
-#master-content {
+#appmaster-content {
   padding: 15px;
   border: solid thin cadetblue;
 }
 
-#master-footer {
+#appmaster-footer {
   height: 53px;
   width: 100%;
   margin-top: -53px;
@@ -75,79 +75,6 @@ body {
 * — Footer Component —
 */
 
-#app-footer > footer > p {
+#appfooter-container > footer > p {
   color: whitesmoke;
-}
-
-
-/*
-* — Projects 1 & 2 —
-* -->CountClock
-* -->StopWatch
-*/
-
-/*
-.App {
-  text-align: center;
-  font-size: 35px;
-  margin-top: 20%;
-}
-
-.App-title {
-  font-size: 50px;
-}
-
-.Clock-days,
-.Clock-hours,
-.Clock-minutes,
-.Clock-seconds,
-.Clock-milliseconds {
-  display: inline;
-  margin: 10px;
-}
-
-.Deadline-input {
-  font-size: 25px;
-  margin: 5px;
-}
-
-.Timer-btn {
-  display: inline;
-  margin: 15px;
-}
-*/
-
-
-/*
-* — Projects 4 —
-* -->ReminderPro
-*/
-
-.ReminderPro {
-  padding-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.title {
-  text-align: center;
-  font-size: 26px;
-}
-
-input {
-  margin: 5px;
-}
-
-.reminder-form {
-  padding: 5px;
-}
-
-.list-item {
-  display: inline-block;
-}
-
-.delete-button {
-  float: right;
-  padding-left: 5px;
 }

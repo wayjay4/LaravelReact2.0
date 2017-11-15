@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import '../../../sass/reminderpro.css';
 
 import { addReminder, deleteReminder, clearReminders } from '../../actions/index';
 
@@ -42,7 +43,7 @@ class ReminderPro extends Component {
                                     <div><em>{moment(new Date(reminder.dueDate)).fromNow()}</em></div>
                                 </div>
                                 <div
-                                    className={"list-item delete-button"}
+                                    className={"list-item reminderpro-delete-button"}
                                     onClick={() => this.deleteReminder(reminder.id)}
                                 >
                                     &#x2715;
@@ -57,12 +58,12 @@ class ReminderPro extends Component {
 
     render() {
         return(
-            <div className={"ReminderPro"}>
-                <div className={"title"}>
+            <div className={"reminderpro-container"}>
+                <div className={"reminderpro-title"}>
                     Reminder Pro
                 </div>
 
-                <div className={"form-inline reminder-form"}>
+                <div className={"form-inline reminderpro-form"}>
                     <div className={"form-group"}>
                         <input
                             className={"form-control"}
@@ -83,8 +84,8 @@ class ReminderPro extends Component {
                     </div>
 
                     <button
-                        type={"button"}
                         className={"btn btn-success"}
+                        type={"button"}
                         onClick={() => this.addReminder()}
                     >
                         Add Reminder

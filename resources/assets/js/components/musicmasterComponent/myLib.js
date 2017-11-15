@@ -7,6 +7,6 @@ function returnAccessToken() {
     console.log('hello from the library');
 
     let accessToken =
-        'BQACkZq4YXQtUcNMM2oDBHT49WDpgFZdo8SSMcgNk4h2HExr6vneG8peSN5EjsVogNEcCXswFMHe4HK4rlF-isyXDpLBCyTegYIke40RvsAZhlo1NTkT6sR9E1eimSZJCTZj7EzRuZlNUPmv2L3A15aOjeq42QuPxiSSBjwm0iNk0ZQ_Rf8';
+        'BQCtgETMDJ-UUoW7TgXOpvj-iWxJLe5Xu35j2ynnu3zFm_kDs8yTJKOAnQbOmnTseek4tqCWxCATHnolCh6ltHPansdc1XearKA5no32hfjUBfTMT4jzd-_1cjMhsxk7mlQalYlejdWIjeOJYdAdZdLXYfwb2Wz3mY-ekRzGjyrWSPdWeg';
     return accessToken;
 }

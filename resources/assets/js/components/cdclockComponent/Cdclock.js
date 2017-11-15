@@ -1,6 +1,7 @@
 // Layout.js
 import React, {Component} from 'react';
 import { Form, FormControl, Button } from  'react-bootstrap';
+import '../../../sass/cdclock.css';
 
 import Timer from './Timer';
 
@@ -21,8 +22,10 @@ export default class Cdclock extends Component {
 
     render() {
         return (
-            <div className="container, App">
-                <div className="App-title">Countdown to {this.state.deadline}</div>
+            <div className="cdclock-container">
+                <div className="cdclock-title">
+                    Countdown to {this.state.deadline}
+                    </div>
 
                 <Timer
                     deadline={this.state.deadline}
@@ -30,12 +33,17 @@ export default class Cdclock extends Component {
 
                 <Form inline={true}>
                     <FormControl
-                        className="Deadline-input"
+                        className="cdclock-deadline-input"
                         placeholder='new date'
                         onChange={event => this.setState({newDeadline: event.target.value})}
                     />
 
-                     <Button onClick={() => this.changeDeadline()}>Submit</Button>
+                     <Button
+                         className={"cdclock-btn"}
+                         onClick={() => this.changeDeadline()}
+                     >
+                         Submit
+                     </Button>
                 </Form>
             </div>
         );
