@@ -7,16 +7,22 @@ export default class Timer extends Component {
             days: 0,
             hours: 0,
             minutes: 0,
-            seconds: 0
+            seconds: 0,
+            interval: ''
         }
     }
 
     componentWillMount() {
         this.getTimeUntil(this.props.deadline);
     }
+
     componentDidMount() {
-        const milliseconds = 1000;
-        setInterval(() => this.getTimeUntil(this.props.deadline), milliseconds);
+        const every_second = 1000;
+        this.state.interval = setInterval(() => this.getTimeUntil(this.props.deadline), every_second);
+    }
+
+    componentWillUnmount() {
+      clearInterval(this.state.interval);
     }
 
     leading0(num) {
@@ -24,7 +30,9 @@ export default class Timer extends Component {
     }
 
     getTimeUntil(deadline) {
-        const time = Date.parse(deadline) - Date.parse(new Date());
+      const time = Date.parse(deadline) - Date.parse(new Date());
+
+      if(time >= 0){
         const seconds = Math.floor((time/1000) % 60);
         const minutes = Math.floor((time/1000/60) % 60);
         const hours = Math.floor(time/(1000*60*60) % 24);
@@ -36,6 +44,12 @@ export default class Timer extends Component {
             minutes,
             seconds: seconds
         });
+      }
+      else {
+        console.log('Congratulations! You made it! Countdown is done.');
+        alert('Congratulations! You made it! Countdown is done.');
+        clearInterval(this.state.interval);
+      }
     }
 
     render() {

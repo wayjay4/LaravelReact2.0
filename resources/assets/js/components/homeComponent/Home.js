@@ -30,7 +30,9 @@ export default class Home extends Component {
                 My recent projects using Laravel and ReactJS
               </h3>
 
-              <div className={"home-projectlist"}>
+              <div
+                className={"home-projectlist"}
+              >
                 <ul>
                   <li><Link to={'/projects/cdclock'}>Countdown Clock</Link></li>
                   <li><Link to={"/projects/goalcoach"}>Goal Coach</Link></li>

@@ -19,13 +19,18 @@ export default class Timer extends Component {
         // set the countdown timer
         this.setCountDownTime();
     }
+
+    componentWillUnmount(){
+      clearInterval(this.state.interval);
+    }
+
     componentDidMount() {
         this.createInterval();
     }
 
     createInterval(){
-        const milliseconds = 1000;
-        this.state.interval = setInterval(() => this.getCountDownTime(this.state.newTime), milliseconds);
+        const every_second = 1000;
+        this.state.interval = setInterval(() => this.getCountDownTime(this.state.newTime), every_second);
     }
 
     leading0(num) {

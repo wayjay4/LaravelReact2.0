@@ -19,42 +19,52 @@ export default class AppNavigation extends Component {
 
                     <Navbar.Collapse>
                         <Nav>
-                            <div style={{display: 'none'}}>
+                            <NavDropdown eventKey={1} title="Project Listings" id="basic-nav-dropdown">
                                 <LinkContainer to={'/projects/home'}>
-                                    <NavItem eventKey={1}>Home</NavItem>
-                                </LinkContainer>
-                                <LinkContainer to={'/projects/reminderpro'}>
-                                    <NavItem eventKey={2}>Reminder Pro</NavItem>
-                                </LinkContainer>
-                            </div>
-
-                            <NavDropdown eventKey={3} title="Project Listings" id="basic-nav-dropdown">
-                                <LinkContainer to={'/projects/home'}>
-                                    <MenuItem eventKey={3.1}>Home Page</MenuItem>
+                                    <MenuItem eventKey={1.1}>Home Page</MenuItem>
                                 </LinkContainer>
 
                                 <MenuItem divider />
 
                                 <LinkContainer to={'/projects/cdclock'}>
-                                    <MenuItem eventKey={3.2}>Countdown Clock</MenuItem>
+                                    <MenuItem eventKey={1.2}>Countdown Clock</MenuItem>
                                 </LinkContainer>
 
                                 <LinkContainer to={'/projects/goalcoach'}>
-                                    <MenuItem eventKey={3.3}>Goal Coach</MenuItem>
+                                    <MenuItem eventKey={1.3}>Goal Coach</MenuItem>
                                 </LinkContainer>
 
                                 <LinkContainer to={'/projects/musicmaster'}>
-                                    <MenuItem eventKey={3.4}>Music Master</MenuItem>
+                                    <MenuItem eventKey={1.4}>Music Master</MenuItem>
                                 </LinkContainer>
 
                                 <LinkContainer to={'/projects/reminderpro'}>
-                                    <MenuItem eventKey={3.5}>Reminder Pro</MenuItem>
+                                    <MenuItem eventKey={1.5}>Reminder Pro</MenuItem>
                                 </LinkContainer>
 
                                 <LinkContainer to={'/projects/stopwatch'}>
-                                    <MenuItem eventKey={3.6}>Stop Watch</MenuItem>
+                                    <MenuItem eventKey={1.6}>Stop Watch</MenuItem>
                                 </LinkContainer>
                             </NavDropdown>
+
+                            <LinkContainer to={'/projects/home'}>
+                                <NavItem eventKey={2}>Home</NavItem>
+                            </LinkContainer>
+                            <LinkContainer to={'/projects/cdclock'}>
+                                <NavItem eventKey={3}>Countdown Clock</NavItem>
+                            </LinkContainer>
+                            <LinkContainer to={'/projects/goalcoach'}>
+                                <NavItem eventKey={4}>Goal Coach</NavItem>
+                            </LinkContainer>
+                            <LinkContainer to={'/projects/musicmaster'}>
+                                <NavItem eventKey={5}>Music Master</NavItem>
+                            </LinkContainer>
+                            <LinkContainer to={'/projects/reminderpro'}>
+                                <NavItem eventKey={6}>Reminder Pro</NavItem>
+                            </LinkContainer>
+                            <LinkContainer to={'/projects/stopwatch'}>
+                                <NavItem eventKey={7}>Stop Watch</NavItem>
+                            </LinkContainer>
                         </Nav>
 
                         <div style={{display: 'none'}}>
