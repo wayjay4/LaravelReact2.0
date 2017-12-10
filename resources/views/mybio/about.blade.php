@@ -22,8 +22,17 @@
                                   <br><br>
                                   If you have any questions, feel free to contact me by email at:&nbsp;
                                   <br>
-                                  &nbsp; <strong>wayjay4@yahoo.com</strong>&nbsp;
+                                  &nbsp; <strong>wdixon@waylondixon.com</strong>&nbsp;
                                   <br>
+                                </p>
+
+                                <p>
+                                  Here are some links to find out more about me:
+
+                                  <ul>
+                                    <li>GitHub: <a href="https://github.com/wayjay4" target="_blank">https://github.com/wayjay4</a></li>
+                                    <li>LinkedIn: <a href="https://www.linkedin.com/in/waylon-dixon-332b6958/" target="_blank">https://www.linkedin.com/in/waylon-dixon-332b6958/</a></li>
+                                  </ul>
                                 </p>
                             </div>
                         </div>

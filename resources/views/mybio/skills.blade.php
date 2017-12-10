@@ -17,11 +17,12 @@
                                 <p></p>
 
                                 <p>
-                                  The scope of my work is a large part of the back end: PHP, MySQL, and Javascript/Ajax.&nbsp;
+                                  The scope of my work is in large the front-end:
+                                  HTML5, CSS, JavaScript, jQuery, AJAX, Reactjs, and Bootstrap.
                                 </p>
 
                                 <p>
-                                  But many times I like to get my hands dirty with some front end development: HTML5, CSS, JavaScript/jQuery, and Bootstrap.
+                                  But many times I like to get my hands dirty with some back-end development: PHP, MySQL, and Laravel.
                                   <br><br>
                                   <strong>Experience:</strong>
                                   <br>
@@ -29,7 +30,15 @@
                                   <br>
                                 </p>
 
-                                <p></p>
+                                <p>
+                                  Here are some links to find out more about me:
+
+                                  <ul>
+                                    <li>GitHub: <a href="https://github.com/wayjay4" target="_blank">https://github.com/wayjay4</a></li>
+                                    <li>LinkedIn: <a href="https://www.linkedin.com/in/waylon-dixon-332b6958/" target="_blank">https://www.linkedin.com/in/waylon-dixon-332b6958/</a></li>
+                                  </ul>
+
+                                </p>
                             </div>
                         </div>
 
